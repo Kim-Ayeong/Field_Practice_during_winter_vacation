@@ -1,0 +1,2400 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Donor Infomation 관리 시스템</title>
+    <style>
+        body {
+            font-family: "맑은 고딕";
+            font-size: 80%;
+        }
+        button {
+            background-color: white;
+            color: white;
+        }
+        table {
+            width: 1000px;
+            border: 0;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+        th {
+            width: 250px;
+            text-align: left;
+        }
+        td {
+            width: 250px;
+            padding: 2px;
+            text-align: left;
+
+        }
+        .color_title {
+            background-color: lightblue;
+        }
+        .color {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body style="align: center; text-align:center;">
+  <div class='color_title'>
+    <h1>Donor Infomation 관리 시스템</h1>
+  </div><hr>
+  <div style="float: left;">
+    <input type="button" value="홈으로" onclick="location.href='index_start.html'">
+  </div>
+
+  <!--첫 화면-->
+  <form id="form1">
+    <div id="page1-1" style="display: block; text-align: left; width: 940px; margin:0 auto;"><br><br><br>
+      <input type="button" style="float: right;" id='add_bt' value="명단 추가"><br><br>
+
+      <!--필요시 display:none > display:block으로 변경-->
+      <input type="submit" style="display: none; float: right;" id='delete_bt' value="삭제"> &nbsp;
+      <input type="text" style="display: none; float: right;" id='delete_id' value=""><br>
+
+      <h2><b> > Donor 명단 </b></h2>
+      <div id="page1-2" style="width:500px; text-align: center; white-space:nowrap;"></div><br />
+      <input type="button" value="명단 Download" onclick="download_DB()"><br /><br />
+    </div>
+  </form>
+
+  <!--지방조직 / 혈액 공여 동의서-->
+  <form id="form2" style="display:none;">
+    <div style="width: 1000px; margin:0 auto; border-top:3px solid black; border-bottom:3px solid black;">
+      <h2> 지방조직 / 혈액 공여 동의서 </h2>
+    </div>
+
+    <table>
+      <tr>
+        <td colspan=4>
+          <br><br>본인은 조직공여에 대한 모든 정보들에 관하여 담당의사로부터 자세히 설명을 들었으며 <br>
+          "지방조직/혈액공여에 관한 설명서"의 내용을 읽고 충분히 이해하였습니다.<br>
+          또한 지방흡입 수술을 수행하고 지방조직/혈액을 제공하는데 자발적인 의사로 동의합니다.<br><br><br>
+        </td>
+      </tr>
+      <tr>
+        <td colspan=4> 1. 공여자(지원자) 인적 사항 </td>
+      </tr>
+      <tr>
+        <td class="color">성명</td>
+        <td><INPUT type="text" id="input2-1" value=""></td>
+        <td class="color">성별</td>
+        <td>
+          <INPUT type="radio" name="radio2-1" value="M">남
+          <INPUT type="radio" name="radio2-1" value="F">여
+        </td>
+      </tr>
+      <tr>
+        <td class="color">주민등록번호</td>
+        <td>
+          <INPUT type="text" id="input2-2" style="width:100px;" value="">-
+          <INPUT type="text" id="input2-3" style="width:100px;" value="">
+        </td>
+      </tr>
+      <tr>
+        <td class="color">주소</td>
+        <td colspan=3><INPUT type="text" id="input2-4" value=""></td>
+      </tr>
+      <tr>
+        <td class="color">전화번호</td>
+        <td><INPUT type="text" id="input2-5" value=""></td>
+      </tr>
+      <tr>
+        <td colspan=4><br> 2. 담당의(설명의사) </td>
+      </tr>
+      <tr>
+        <td class="color">소속</td>
+        <td colspan=3>
+          <INPUT type="text" id="input2-6" value=""> 병원 &nbsp;&nbsp;&nbsp;
+          <INPUT type="text" id="input2-7" value=""> 과
+        </td>
+      </tr>
+      <tr>
+        <td class="color">성명</td>
+        <td><INPUT type="text" id="input2-8" value=""></td>
+      </tr>
+      <tr>
+        <td colspan=4><br> 3. 지방조직 및 혈액 수령기관 정보 </td>
+      </tr>
+      <tr>
+        <td class="color">수령기관</td>
+        <td>(주)피디젠 기능유전체연구소</td>
+        <td class="color">수령인</td>
+        <td><INPUT type="text" id="input2-9" value=""></td>
+      </tr>
+      <tr>
+        <td class="color">주소</td>
+        <td>서울시 광진구 동일로 437</td>
+      </tr>
+      <tr>
+        <td class="color">연락처</td>
+        <td colspan=3>02-461-3671</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><br><br>동의 날짜</td>
+        <td><br><br>
+          <SELECT id="combo2-1-1">
+              <OPTION>-</OPTION>
+              <OPTION>2000</OPTION>
+              <OPTION>2001</OPTION>
+              <OPTION>2002</OPTION>
+              <OPTION>2003</OPTION>
+              <OPTION>2004</OPTION>
+              <OPTION>2005</OPTION>
+              <OPTION>2006</OPTION>
+              <OPTION>2007</OPTION>
+              <OPTION>2008</OPTION>
+              <OPTION>2009</OPTION>
+              <OPTION>2010</OPTION>
+              <OPTION>2011</OPTION>
+              <OPTION>2012</OPTION>
+              <OPTION>2013</OPTION>
+              <OPTION>2014</OPTION>
+              <OPTION>2015</OPTION>
+              <OPTION>2016</OPTION>
+              <OPTION>2017</OPTION>
+              <OPTION>2018</OPTION>
+              <OPTION>2019</OPTION>
+          </SELECT>
+          <SELECT id="combo2-1-2">
+              <OPTION>-
+              <OPTION>01
+              <OPTION>02
+              <OPTION>03
+              <OPTION>04
+              <OPTION>05
+              <OPTION>06
+              <OPTION>07
+              <OPTION>08
+              <OPTION>09
+              <OPTION>10
+              <OPTION>11
+              <OPTION>12
+          </SELECT>
+          <SELECT id="combo2-1-3">
+              <OPTION>-
+              <OPTION>01
+              <OPTION>02
+              <OPTION>03
+              <OPTION>04
+              <OPTION>05
+              <OPTION>06
+              <OPTION>07
+              <OPTION>08
+              <OPTION>09
+              <OPTION>10
+              <OPTION>11
+              <OPTION>12
+              <OPTION>13
+              <OPTION>14
+              <OPTION>15
+              <OPTION>16
+              <OPTION>17
+              <OPTION>18
+              <OPTION>19
+              <OPTION>20
+              <OPTION>21
+              <OPTION>22
+              <OPTION>23
+              <OPTION>24
+              <OPTION>25
+              <OPTION>26
+              <OPTION>27
+              <OPTION>28
+              <OPTION>29
+              <OPTION>30
+              <OPTION>31
+          </SELECT>
+        </td>
+        <td></td>
+      </tr>
+    </table><br><br>
+
+    <div style="width: 1000px; text-align: left; margin:0 auto; border-top:3px solid black;">
+      <br>PDXen Biosystems Co.<br>
+      437, Dongil-ro, Gwangjin-gu, Seoul, 04900, Korea<br>
+      Tel: +82-2-461-3671, Fax: ++82-2-443-8683<br><br><br>
+      <input type="button" style="float:left;" id='form2_before_bt' value="첫 화면으로">
+      <input type="button" style="float:right;" id='form2_next_bt' value="다음"><br><br><br>
+    </div>
+  </form>
+
+  <!--지방조직 공여자 적격성 평가 결과-->
+  <form id="form3" style="display:none;">
+    <div style="width: 1000px; margin:0 auto; border-top:3px solid black; border-bottom:3px solid black;">
+      <h2> 지방조직 공여자 적격성 평가 결과 </h2>
+    </div>
+
+    <table>
+      <tr><td><br></td></tr>
+      <tr>
+        <td class="color">이름</td>
+        <td><INPUT type="text" id="input3-1" value=""></td>
+        <td colspan=2></td>
+      </tr>
+      <tr>
+        <td class="color">주민등록번호</td>
+        <td colspan=3>
+          <INPUT type="text" id="input3-2" style="width:100px;" value="">-
+          <INPUT type="text" id="input3-3" style="width:100px;" value="">
+        </td>
+      </tr>
+      <tr>
+        <td colspan=4>
+          <br><br><br><br>위 사람은 감염성 질환의 윈도우 피리어드를 고려하여 수술일로부터 3개월 뒤
+          감염성 바이러스 및 세균검사를 위한 실험실적 평가 재실시 결과, 지방조직 공여자로<br><br>
+        </td>
+      </tr>
+      <tr>
+        <td colspan=4 style="text-align:center">
+          <INPUT type="radio" name="radio3-1" value="Y">적합합니다.
+          <INPUT type="radio" name="radio3-1" value="N">적합하지 않습니다.<br><br><br><br><br>
+        </td>
+      </tr>
+      <tr>
+        <td colspan=2></td>
+        <td class="color">담당의 서명</td>
+        <td><INPUT type="text" id="input3-4" value=""></td></td>
+      </tr>
+      <tr>
+        <td colspan=2></td>
+        <td class="color">날짜</td>
+        <td>
+          <SELECT id="combo3-1-1">
+              <OPTION>-
+              <OPTION>2000
+              <OPTION>2001
+              <OPTION>2002
+              <OPTION>2003
+              <OPTION>2004
+              <OPTION>2005
+              <OPTION>2006
+              <OPTION>2007
+              <OPTION>2008
+              <OPTION>2009
+              <OPTION>2010
+              <OPTION>2011
+              <OPTION>2012
+              <OPTION>2013
+              <OPTION>2014
+              <OPTION>2015
+              <OPTION>2016
+              <OPTION>2017
+              <OPTION>2018
+              <OPTION>2019
+          </SELECT>
+          <SELECT id="combo3-1-2">
+              <OPTION>-
+              <OPTION>01
+              <OPTION>02
+              <OPTION>03
+              <OPTION>04
+              <OPTION>05
+              <OPTION>06
+              <OPTION>07
+              <OPTION>08
+              <OPTION>09
+              <OPTION>10
+              <OPTION>11
+              <OPTION>12
+          </SELECT>
+          <SELECT id="combo3-1-3">
+              <OPTION>-
+              <OPTION>01
+              <OPTION>02
+              <OPTION>03
+              <OPTION>04
+              <OPTION>05
+              <OPTION>06
+              <OPTION>07
+              <OPTION>08
+              <OPTION>09
+              <OPTION>10
+              <OPTION>11
+              <OPTION>12
+              <OPTION>13
+              <OPTION>14
+              <OPTION>15
+              <OPTION>16
+              <OPTION>17
+              <OPTION>18
+              <OPTION>19
+              <OPTION>20
+              <OPTION>21
+              <OPTION>22
+              <OPTION>23
+              <OPTION>24
+              <OPTION>25
+              <OPTION>26
+              <OPTION>27
+              <OPTION>28
+              <OPTION>29
+              <OPTION>30
+              <OPTION>31
+          </SELECT>
+        </td>
+      </tr>
+    </table><br><br>
+
+    <div style="width: 1000px; text-align: left; margin:0 auto; border-top:3px solid black;">
+      <br>PDXen Biosystems Co.<br>
+      437, Dongil-ro, Gwangjin-gu, Seoul, 04900, Korea<br>
+      Tel: +82-2-461-3671, Fax: ++82-2-443-8683<br><br><br>
+      <input type="button" style="float:left;" id='form3_before_bt' value="이전">
+      <input type="button" style="float:right;" id='form3_next_bt' value="다음"><br><br><br>
+    </div>
+  </form>
+
+  <!--지방조직 체크리스트-->
+  <form id="form4" style="display:none;">
+    <div style="width: 1000px; margin:0 auto; border-top:3px solid black; border-bottom:3px solid black;">
+      <h2> 지방조직 체크리스트 </h2>
+    </div>
+
+    <table>
+      <tr><td><br></td></tr>
+      <tr class="color">
+        <td colspan=4 style="text-align:center;"><b>지방조직 정보</b></td>
+      </tr>
+      <tr>
+        <td class="color">공여자 ID(*)</td>
+        <td><INPUT type="text" id="input4-1" value=""></td>
+        <td class="color">주민등록번호</td>
+        <td>
+          <INPUT type="text" id="input4-2" style="width:100px;" value="">-
+          <INPUT type="text" id="input4-3" style="width:100px;" value="">
+        </td>
+      </tr>
+      <tr>
+        <td class="color">병원명</td>
+        <td><INPUT type="text" id="input4-4" value=""></td>
+        <td class="color">담당의명</td>
+        <td><INPUT type="text" id="input4-5" value=""></td>
+      </tr>
+      <tr>
+        <td class="color">지방흡입 수술일</td>
+        <td>
+          <SELECT id="combo4-1-1">
+              <OPTION>-
+              <OPTION>2000
+              <OPTION>2001
+              <OPTION>2002
+              <OPTION>2003
+              <OPTION>2004
+              <OPTION>2005
+              <OPTION>2006
+              <OPTION>2007
+              <OPTION>2008
+              <OPTION>2009
+              <OPTION>2010
+              <OPTION>2011
+              <OPTION>2012
+              <OPTION>2013
+              <OPTION>2014
+              <OPTION>2015
+              <OPTION>2016
+              <OPTION>2017
+              <OPTION>2018
+              <OPTION>2019
+          </SELECT>
+          <SELECT id="combo4-1-2">
+              <OPTION>-
+              <OPTION>01
+              <OPTION>02
+              <OPTION>03
+              <OPTION>04
+              <OPTION>05
+              <OPTION>06
+              <OPTION>07
+              <OPTION>08
+              <OPTION>09
+              <OPTION>10
+              <OPTION>11
+              <OPTION>12
+          </SELECT>
+          <SELECT id="combo4-1-3">
+              <OPTION>-
+              <OPTION>01
+              <OPTION>02
+              <OPTION>03
+              <OPTION>04
+              <OPTION>05
+              <OPTION>06
+              <OPTION>07
+              <OPTION>08
+              <OPTION>09
+              <OPTION>10
+              <OPTION>11
+              <OPTION>12
+              <OPTION>13
+              <OPTION>14
+              <OPTION>15
+              <OPTION>16
+              <OPTION>17
+              <OPTION>18
+              <OPTION>19
+              <OPTION>20
+              <OPTION>21
+              <OPTION>22
+              <OPTION>23
+              <OPTION>24
+              <OPTION>25
+              <OPTION>26
+              <OPTION>27
+              <OPTION>28
+              <OPTION>29
+              <OPTION>30
+              <OPTION>31
+          </SELECT>
+        </td>
+        <td class="color">지방조직량</td>
+        <td><INPUT type="text" id="input4-6" value=""></td>
+      </tr>
+      <tr><td> <br><br> </td></tr>
+
+      <tr class="color">
+        <td colspan=2 style="text-align:center;"><b>점검내용</b></td>
+        <td style="text-align:center;"><b>확인(적합/부적합)</b></td>
+        <td style="text-align:center;"><b>비고</b></td>
+      </tr>
+      <tr>
+        <td colspan=2>1. 지방조직이 적정 용기에 들어있는가?</td>
+        <td>
+          <INPUT type="radio" name="radio4-1" value="Y">Yes
+          <INPUT type="radio" name="radio4-1" value="N">No
+        </td>
+        <td><INPUT type="text" id="input4-7" style="width:250px;" value=""></td>
+      </tr>
+      <tr>
+        <td colspan=2>2. 지방조직이 흐르거나 오염되지 않도록 뚜꼉이 잘 닫혀있는가?</td>
+        <td>
+          <INPUT type="radio" name="radio4-2" value="Y">Yes
+          <INPUT type="radio" name="radio4-2" value="N">No
+        </td>
+        <td><INPUT type="text" id="input4-8" style="width:250px;" value=""></td>
+      </tr>
+      <tr>
+        <td colspan=2>3. 용기가 파손되지는 않았는가?</td>
+        <td>
+          <INPUT type="radio" name="radio4-3" value="Y">Yes
+          <INPUT type="radio" name="radio4-3" value="N">No
+        </td>
+        <td><INPUT type="text" id="input4-9" style="width:250px;" value=""></td>
+      </tr>
+      <tr>
+        <td colspan=2>4. 용기부착 라벨에 모든 사항이 정확하게 기록되어 있는가?</td>
+        <td>
+          <INPUT type="radio" name="radio4-4" value="Y">Yes
+          <INPUT type="radio" name="radio4-4" value="N">No
+        </td>
+        <td><INPUT type="text" id="input4-10" style="width:250px;" value=""></td>
+      </tr>
+      <tr>
+        <td colspan=2>5. 지방조직 공여자 체크리스트/문진표/적격성 평가결과표/동의서/지방조직 채취정보가 모두 작성되어 있는가?</td>
+        <td>
+          <INPUT type="radio" name="radio4-5" value="Y">Yes
+          <INPUT type="radio" name="radio4-5" value="N">No
+        </td>
+        <td><INPUT type="text" id="input4-11" style="width:250px;" value=""></td>
+      </tr>
+      <tr>
+        <td colspan=2>6. 지방조직 공여자 체크리스트/문진표/적격성 평가결과표/지방조직 채취정보 내용이 모두 적합한가?</td>
+        <td>
+          <INPUT type="radio" name="radio4-6" value="Y">Yes
+          <INPUT type="radio" name="radio4-6" value="N">No
+        </td>
+        <td><INPUT type="text" id="input4-12" style="width:250px;" value=""></td>
+      </tr>
+      <tr><td><br></td></tr>
+      <tr>
+        <td class="color">(주)피디젠 기능유전체 연구소 담당자</td>
+        <td><INPUT type="text" id="input4-13" value=""></td>
+        <td class="color">병원 담당자</td>
+        <td><INPUT type="text" id="input4-14" value=""></td>
+      </tr>
+    </table><br><br>
+
+    <div style="width: 1000px; text-align: left; margin:0 auto; border-top:3px solid black;">
+      <br>PDXen Biosystems Co.<br>
+      437, Dongil-ro, Gwangjin-gu, Seoul, 04900, Korea<br>
+      Tel: +82-2-461-3671, Fax: ++82-2-443-8683<br><br><br>
+      <input type="button" style="float:left;" id='form4_before_bt' value="이전">
+      <input type="button" style="float:right;" id='form4_next_bt' value="다음"><br><br><br>
+    </div>
+  </form>
+
+  <!--Donor Eligibility Test Report-->
+  <form id="form5" style="display:none;">
+    <div style="width: 1000px; margin:0 auto; border-top:3px solid black; border-bottom:3px solid black;">
+      <h2> Donor Eligibility Test Report </h2>
+    </div>
+
+    <table>
+      <tr>
+        <td colspan=2></td>
+        <td><br><br>공여자 ID(*)</td>
+        <td><br><br><INPUT type="text" id="input5-1" value=""></td>
+      </tr>
+      <tr><td><br></td></tr>
+      <tr class="color">
+        <td colspan=4 style="text-align:center;"><b>공여자 정보</b></td>
+      </tr>
+      <tr>
+        <td class="color">인종</td>
+        <td colspan=3><INPUT type="text" id="input5-2" value=""></td>
+      </tr>
+      <tr>
+        <td class="color">성별</td>
+        <td>
+          <INPUT type="radio" name="radio5-1" value="M">남
+          <INPUT type="radio" name="radio5-1" value="F">여
+        </td>
+        <td class="color">나이</td>
+        <td><INPUT type="text" id="input5-3" value=""></td>
+      </tr>
+      <tr>
+        <td class="color">세포의 기원</td>
+        <td colspan=3><INPUT type="text" id="input5-4" value=""></td>
+      </tr>
+      <tr>
+        <td class="color">조직 채취일</td>
+        <td colspan=3>
+          <SELECT id="combo5-1-1">
+              <OPTION>-
+              <OPTION>2000
+              <OPTION>2001
+              <OPTION>2002
+              <OPTION>2003
+              <OPTION>2004
+              <OPTION>2005
+              <OPTION>2006
+              <OPTION>2007
+              <OPTION>2008
+              <OPTION>2009
+              <OPTION>2010
+              <OPTION>2011
+              <OPTION>2012
+              <OPTION>2013
+              <OPTION>2014
+              <OPTION>2015
+              <OPTION>2016
+              <OPTION>2017
+              <OPTION>2018
+              <OPTION>2019
+          </SELECT>
+          <SELECT id="combo5-1-2">
+              <OPTION>-
+              <OPTION>01
+              <OPTION>02
+              <OPTION>03
+              <OPTION>04
+              <OPTION>05
+              <OPTION>06
+              <OPTION>07
+              <OPTION>08
+              <OPTION>09
+              <OPTION>10
+              <OPTION>11
+              <OPTION>12
+          </SELECT>
+          <SELECT id="combo5-1-3">
+              <OPTION>-
+              <OPTION>01
+              <OPTION>02
+              <OPTION>03
+              <OPTION>04
+              <OPTION>05
+              <OPTION>06
+              <OPTION>07
+              <OPTION>08
+              <OPTION>09
+              <OPTION>10
+              <OPTION>11
+              <OPTION>12
+              <OPTION>13
+              <OPTION>14
+              <OPTION>15
+              <OPTION>16
+              <OPTION>17
+              <OPTION>18
+              <OPTION>19
+              <OPTION>20
+              <OPTION>21
+              <OPTION>22
+              <OPTION>23
+              <OPTION>24
+              <OPTION>25
+              <OPTION>26
+              <OPTION>27
+              <OPTION>28
+              <OPTION>29
+              <OPTION>30
+              <OPTION>31
+          </SELECT>
+        </td>
+      </tr>
+      <tr>
+        <td class="color">조직 채취기관</td>
+        <td colspan=3><INPUT type="text" id="input5-5" value=""></td>
+      </tr>
+      <tr><td> <br> </td></tr>
+
+      <tr class="color">
+        <td colspan=4 style="text-align:center;"><b>공여자 적격성 검사</b></td>
+      </tr>
+      <tr class="color">
+        <td colspan=2 style="text-align:center;">검사항목</td>
+        <td style="text-align:center;">결과</td>
+        <td style="text-align:center;">기준</td>
+      </tr>
+      <tr>
+        <td colspan=2>혈액검사</td>
+        <td>
+          <INPUT type="radio" name="radio5-2" value="Y">적합
+          <INPUT type="radio" name="radio5-2" value="N">부적합
+        </td>
+        <td>Normal range</td>
+      </tr>
+      <tr>
+        <td colspan=2>HBV(B형 간염 바이러스)</td>
+        <td>
+          <INPUT type="radio" name="radio5-3" value="+">양성
+          <INPUT type="radio" name="radio5-3" value="-">음성
+        </td>
+        <td>음성</td>
+      </tr>
+      <tr>
+        <td colspan=2>HCV(C형 간염 바이러스)</td>
+        <td>
+          <INPUT type="radio" name="radio5-4" value="+">양성
+          <INPUT type="radio" name="radio5-4" value="-">음성
+        </td>
+        <td>음성</td>
+      </tr>
+      <tr>
+        <td colspan=2>HIV(인체 면역결핍 바이러스)</td>
+        <td>
+          <INPUT type="radio" name="radio5-5" value="+">양성
+          <INPUT type="radio" name="radio5-5" value="-">음성
+        </td>
+        <td>음성</td>
+      </tr>
+      <tr>
+        <td colspan=2>HTLV(인체 T림프 영양성 바이러스)</td>
+        <td>
+          <INPUT type="radio" name="radio5-6" value="+">양성
+          <INPUT type="radio" name="radio5-6" value="-">음성
+        </td>
+        <td>음성</td>
+      </tr>
+      <tr>
+        <td colspan=2>파보 바이러스 B19</td>
+        <td>
+          <INPUT type="radio" name="radio5-7" value="+">양성
+          <INPUT type="radio" name="radio5-7" value="-">음성
+        </td>
+        <td>음성</td>
+      </tr>
+      <tr>
+        <td colspan=2>CMV(사이토메가로 바이러스)</td>
+        <td>
+          <INPUT type="radio" name="radio5-8" value="+">양성
+          <INPUT type="radio" name="radio5-8" value="-">음성
+        </td>
+        <td>음성</td>
+      </tr>
+      <tr>
+        <td colspan=2>앱스타인-바 바이러스 감염증(EBV)</td>
+        <td>
+          <INPUT type="radio" name="radio5-9" value="+">양성
+          <INPUT type="radio" name="radio5-9" value="-">음성
+        </td>
+        <td>음성</td>
+      </tr>
+      <tr>
+        <td colspan=2>매독트레포네마</td>
+        <td>
+          <INPUT type="radio" name="radio5-10" value="+">양성
+          <INPUT type="radio" name="radio5-10" value="-">음성
+        </td>
+        <td>음성</td>
+      </tr>
+      <tr>
+        <td colspan=2>클라미디아</td>
+        <td>
+          <INPUT type="radio" name="radio5-11" value="+">양성
+          <INPUT type="radio" name="radio5-11" value="-">음성
+        </td>
+        <td>음성</td>
+      </tr>
+      <tr>
+        <td colspan=2>임균</td>
+        <td>
+          <INPUT type="radio" name="radio5-12" value="+">양성
+          <INPUT type="radio" name="radio5-12" value="-">음성
+        </td>
+        <td>음성</td>
+      </tr>
+      <tr>
+        <td colspan=2>결핵균</td>
+        <td>
+          <INPUT type="radio" name="radio5-13" value="+">양성
+          <INPUT type="radio" name="radio5-13" value="-">음성
+        </td>
+        <td>음성</td>
+      </tr>
+      <tr>
+        <td colspan=2>폐혈증</td>
+        <td>
+          <INPUT type="radio" name="radio5-14" value="+">양성
+          <INPUT type="radio" name="radio5-14" value="-">음성
+        </td>
+        <td>음성</td>
+      </tr>
+      <tr>
+        <td colspan=2>세포, 조직에 영향을 미칠 수 있는 선천성 또는 만성질환</td>
+        <td>
+          <INPUT type="radio" name="radio5-15" value="Y">있음
+          <INPUT type="radio" name="radio5-15" value="N">없음
+        </td>
+        <td>없음</td>
+      </tr>
+    </table><br><br>
+
+    <div style="width: 1000px; text-align: left; margin:0 auto; border-top:3px solid black;">
+      <br>PDXen Biosystems Co.<br>
+      437, Dongil-ro, Gwangjin-gu, Seoul, 04900, Korea<br>
+      Tel: +82-2-461-3671, Fax: ++82-2-443-8683<br><br><br>
+      <input type="button" style="float:left;" id='form5_before_bt' value="이전">
+      <input type="button" style="float:right;" id='form5_next_bt' value="다음"><br><br><br>
+    </div>
+  </form>
+
+  <!--인체 줄기세포 배약액(SCM)의 안전성 평가 결과 (명단 추가용)-->
+  <form id="form6" style="display:none;">
+    <div style="width: 1000px; margin:0 auto; border-top:3px solid black; border-bottom:3px solid black;">
+      <h2> 인체 줄기세포 배약액(SCM)의 안전성 평가 결과 </h2>
+    </div>
+
+    <table>
+      <tr><td colspan=3><br></td></tr>
+      <tr class="color">
+        <td style="text-align:center;"><b>평가항목</b></td>
+        <td colspan=2 style="text-align:center;"><b>결과</b></td>
+      </tr>
+      <tr>
+        <td>단회투여 독성시험</td>
+        <td>독성변화</td>
+        <td>
+          <INPUT type="radio" name="radio6-1" value="Y">있음
+          <INPUT type="radio" name="radio6-1" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>반복투여 독성시험</td>
+        <td>독성변화</td>
+        <td>
+          <INPUT type="radio" name="radio6-2" value="Y">있음
+          <INPUT type="radio" name="radio6-2" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>1차 피부자극시험</td>
+        <td>피부자극성</td>
+        <td>
+          <INPUT type="radio" name="radio6-3" value="Y">있음
+          <INPUT type="radio" name="radio6-3" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>안점막 자극시험</td>
+        <td>피부자극성</td>
+        <td>
+          <INPUT type="radio" name="radio6-4" value="Y">있음
+          <INPUT type="radio" name="radio6-4" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>피부감작성 시험</td>
+        <td>피부자극성</td>
+        <td>
+          <INPUT type="radio" name="radio6-5" value="Y">있음
+          <INPUT type="radio" name="radio6-5" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>광독성 시험</td>
+        <td>광독성</td>
+        <td>
+          <INPUT type="radio" name="radio6-6" value="Y">있음
+          <INPUT type="radio" name="radio6-6" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>광감작성 시험</td>
+        <td>광감작성</td>
+        <td>
+          <INPUT type="radio" name="radio6-7" value="Y">있음
+          <INPUT type="radio" name="radio6-7" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>복귀돌연변이 시험</td>
+        <td>유전자 돌연변이를</td>
+        <td>
+          <INPUT type="radio" name="radio6-8" value="Y">유발함
+          <INPUT type="radio" name="radio6-8" value="N">유발하지 않음
+        </td>
+      </tr>
+      <tr>
+        <td>염색체이상 시험</td>
+        <td>염색체 이상을</td>
+        <td>
+          <INPUT type="radio" name="radio6-9" value="Y">유발함
+          <INPUT type="radio" name="radio6-9" value="N">유발하지 않음
+        </td>
+      </tr>
+      <tr>
+        <td>소핵 시험</td>
+        <td>골수세포의 소핵을</td>
+        <td>
+          <INPUT type="radio" name="radio6-10" value="Y">유발함
+          <INPUT type="radio" name="radio6-10" value="N">유발하지 않음
+        </td>
+      </tr>
+      <tr>
+        <td>인체첩포시험</td>
+        <td></td>
+        <td>
+          <INPUT type="radio" name="radio6-11" value="Y">자극성
+          <INPUT type="radio" name="radio6-11" value="N">비자극성
+        </td>
+      </tr>
+    </table><br><br>
+
+    <div style="width: 1000px; text-align: left; margin:0 auto; border-top:3px solid black;">
+      <br>PDXen Biosystems Co.<br>
+      437, Dongil-ro, Gwangjin-gu, Seoul, 04900, Korea<br>
+      Tel: +82-2-461-3671, Fax: ++82-2-443-8683<br><br><br>
+      <input type="button" style="float:left;" id='form6_before_bt' value="이전">
+      <input type="submit" style="float:right;" id='upload_bt' value="작성완료"><br><br><br>
+    </div>
+  </form>
+
+  <!--인체 줄기세포 배약액(SCM)의 안전성 평가 결과 (자세히 보기용)-->
+  <form id="form7" style="display:none;">
+    <div style="width: 1000px; margin:0 auto; border-top:3px solid black; border-bottom:3px solid black;">
+      <h2> 인체 줄기세포 배약액(SCM)의 안전성 평가 결과 </h2>
+    </div>
+
+    <table>
+      <tr><td colspan=3><br></td></tr>
+      <tr class="color">
+        <td style="text-align:center;"><b>평가항목</b></td>
+        <td colspan=2 style="text-align:center;"><b>결과</b></td>
+      </tr>
+      <tr>
+        <td>단회투여 독성시험</td>
+        <td>독성변화</td>
+        <td>
+          <INPUT type="radio" name="radio7-1" value="Y">있음
+          <INPUT type="radio" name="radio7-1" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>반복투여 독성시험</td>
+        <td>독성변화</td>
+        <td>
+          <INPUT type="radio" name="radio7-2" value="Y">있음
+          <INPUT type="radio" name="radio7-2" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>1차 피부자극시험</td>
+        <td>피부자극성</td>
+        <td>
+          <INPUT type="radio" name="radio7-3" value="Y">있음
+          <INPUT type="radio" name="radio7-3" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>안점막 자극시험</td>
+        <td>피부자극성</td>
+        <td>
+          <INPUT type="radio" name="radio7-4" value="Y">있음
+          <INPUT type="radio" name="radio7-4" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>피부감작성 시험</td>
+        <td>피부자극성</td>
+        <td>
+          <INPUT type="radio" name="radio7-5" value="Y">있음
+          <INPUT type="radio" name="radio7-5" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>광독성 시험</td>
+        <td>광독성</td>
+        <td>
+          <INPUT type="radio" name="radio7-6" value="Y">있음
+          <INPUT type="radio" name="radio7-6" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>광감작성 시험</td>
+        <td>광감작성</td>
+        <td>
+          <INPUT type="radio" name="radio7-7" value="Y">있음
+          <INPUT type="radio" name="radio7-7" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>복귀돌연변이 시험</td>
+        <td>유전자 돌연변이를</td>
+        <td>
+          <INPUT type="radio" name="radio7-8" value="Y">유발함
+          <INPUT type="radio" name="radio7-8" value="N">유발하지 않음
+        </td>
+      </tr>
+      <tr>
+        <td>염색체이상 시험</td>
+        <td>염색체 이상을</td>
+        <td>
+          <INPUT type="radio" name="radio7-9" value="Y">유발함
+          <INPUT type="radio" name="radio7-9" value="N">유발하지 않음
+        </td>
+      </tr>
+      <tr>
+        <td>소핵 시험</td>
+        <td>골수세포의 소핵을</td>
+        <td>
+          <INPUT type="radio" name="radio7-10" value="Y">유발함
+          <INPUT type="radio" name="radio7-10" value="N">유발하지 않음
+        </td>
+      </tr>
+      <tr>
+        <td>인체첩포시험</td>
+        <td></td>
+        <td>
+          <INPUT type="radio" name="radio7-11" value="Y">자극성
+          <INPUT type="radio" name="radio7-11" value="N">비자극성
+        </td>
+      </tr>
+    </table><br><br>
+
+    <div style="width: 1000px; text-align: left; margin:0 auto; border-top:3px solid black;">
+      <br>PDXen Biosystems Co.<br>
+      437, Dongil-ro, Gwangjin-gu, Seoul, 04900, Korea<br>
+      Tel: +82-2-461-3671, Fax: ++82-2-443-8683<br><br><br>
+      <input type="button" style="float:left;" id='form7_before_bt' value="이전">
+      <input type="submit" style="float:right;" id='none_bt' value="확인"><br><br><br>
+    </div>
+  </form>
+
+  <!--인체 줄기세포 배약액(SCM)의 안전성 평가 결과 (수정용)-->
+  <form id="form8" style="display:none;">
+    <div style="width: 1000px; margin:0 auto; border-top:3px solid black; border-bottom:3px solid black;">
+      <h2> 인체 줄기세포 배약액(SCM)의 안전성 평가 결과 </h2>
+    </div>
+
+    <table>
+      <tr><td colspan=3><br></td></tr>
+      <tr class="color">
+        <td style="text-align:center;"><b>평가항목</b></td>
+        <td colspan=2 style="text-align:center;"><b>결과</b></td>
+      </tr>
+      <tr>
+        <td>단회투여 독성시험</td>
+        <td>독성변화</td>
+        <td>
+          <INPUT type="radio" name="radio8-1" value="Y">있음
+          <INPUT type="radio" name="radio8-1" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>반복투여 독성시험</td>
+        <td>독성변화</td>
+        <td>
+          <INPUT type="radio" name="radio8-2" value="Y">있음
+          <INPUT type="radio" name="radio8-2" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>1차 피부자극시험</td>
+        <td>피부자극성</td>
+        <td>
+          <INPUT type="radio" name="radio8-3" value="Y">있음
+          <INPUT type="radio" name="radio8-3" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>안점막 자극시험</td>
+        <td>피부자극성</td>
+        <td>
+          <INPUT type="radio" name="radio8-4" value="Y">있음
+          <INPUT type="radio" name="radio8-4" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>피부감작성 시험</td>
+        <td>피부자극성</td>
+        <td>
+          <INPUT type="radio" name="radio8-5" value="Y">있음
+          <INPUT type="radio" name="radio8-5" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>광독성 시험</td>
+        <td>광독성</td>
+        <td>
+          <INPUT type="radio" name="radio8-6" value="Y">있음
+          <INPUT type="radio" name="radio8-6" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>광감작성 시험</td>
+        <td>광감작성</td>
+        <td>
+          <INPUT type="radio" name="radio8-7" value="Y">있음
+          <INPUT type="radio" name="radio8-7" value="N">없음
+        </td>
+      </tr>
+      <tr>
+        <td>복귀돌연변이 시험</td>
+        <td>유전자 돌연변이를</td>
+        <td>
+          <INPUT type="radio" name="radio8-8" value="Y">유발함
+          <INPUT type="radio" name="radio8-8" value="N">유발하지 않음
+        </td>
+      </tr>
+      <tr>
+        <td>염색체이상 시험</td>
+        <td>염색체 이상을</td>
+        <td>
+          <INPUT type="radio" name="radio8-9" value="Y">유발함
+          <INPUT type="radio" name="radio8-9" value="N">유발하지 않음
+        </td>
+      </tr>
+      <tr>
+        <td>소핵 시험</td>
+        <td>골수세포의 소핵을</td>
+        <td>
+          <INPUT type="radio" name="radio8-10" value="Y">유발함
+          <INPUT type="radio" name="radio8-10" value="N">유발하지 않음
+        </td>
+      </tr>
+      <tr>
+        <td>인체첩포시험</td>
+        <td></td>
+        <td>
+          <INPUT type="radio" name="radio8-11" value="Y">자극성
+          <INPUT type="radio" name="radio8-11" value="N">비자극성
+        </td>
+      </tr>
+    </table><br><br>
+
+    <div style="width: 1000px; text-align: left; margin:0 auto; border-top:3px solid black;">
+      <br>PDXen Biosystems Co.<br>
+      437, Dongil-ro, Gwangjin-gu, Seoul, 04900, Korea<br>
+      Tel: +82-2-461-3671, Fax: ++82-2-443-8683<br><br><br>
+      <input type="button" style="float:left;" id='form8_before_bt' value="이전">
+      <input type="submit" style="float:right;" id='modify_bt' value="수정 완료"><br><br><br>
+    </div>
+  </form>
+
+  <script src='http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script type="text/javascript">
+
+    var server_DB;
+    //페이지 로딩 시 자동 실행됨
+    $(document).ready(function() {
+      //json을 테이블로 출력하는 함수
+      function jsonToTable(jsonData) {
+        var index = 0;
+        var myHTMLStr = '<table>'
+        myHTMLStr += '<tr><td>' + "공여자 ID"
+                  + '</td><td>' + "이름"
+                  + '</td><td>' + "성별(M/F)"
+                  + '</td><td>' + "나이"
+                  + '</td><td>' + "조직 채취일"
+                  + '</td><td>' + "조직 채취기관"
+                  + '</td><td>' + "담당의"
+                  + '</td><td>' + "1p"
+                  + '</td><td>' + "2p"
+                  + '</td><td>' + "3p"
+                  + '</td><td>' + "4p"
+                  + '</td><td>' + "5p"
+                  + '</td></tr>';
+
+        for(var i in jsonData) {
+          myHTMLStr += '<tr><td>' + jsonData[i].identification
+                    + '</td><td>' + jsonData[i].name
+                    + '</td><td>' + jsonData[i].sex
+                    + '</td><td>' + jsonData[i].age
+                    + '</td><td>' + jsonData[i].surgery_date
+                    + '</td><td>' + jsonData[i].doctor_hospital
+                    + '</td><td>' + jsonData[i].doctor_name
+                    + '</td><td>' + jsonData[i].page1
+                    + '</td><td>' + jsonData[i].page2
+                    + '</td><td>' + jsonData[i].page3
+                    + '</td><td>' + jsonData[i].page4
+                    + '</td><td>' + jsonData[i].page5
+                    + '</td><td>'
+                    + `<input type="button" id="info_${index}" onclick=viewInfo(${index}) value="자세히 보기">&nbsp;`
+                    + `<input type="button" id="modify_${index}" onclick=modifyInfo(${index}) value="수정">&nbsp;`
+                    + '</td></tr>';
+                    index += 1;
+        }
+        myHTMLStr +='</table>';
+        return myHTMLStr
+      }
+
+      $.ajax({
+        url: '/view2',
+        type: 'post',
+        data: { data: 'none' },
+        dataType: 'json',
+
+        success: function(res) {
+          $('#page1-2').html(jsonToTable(res))
+          server_DB = res
+        },
+        error: function(e) {
+          alert(e)
+        }
+      })
+    });
+
+    var infoData; //자세히 볼 데이터 한 행
+    //자세히 보기 버튼 클릭
+    function viewInfo(index) {
+      $.ajax({
+        url: '/info2-1',
+        type: 'post',
+        data: { data: index },
+        dataType: 'json',
+
+        success: function(res) { //form 2,3,4,5,7에 데이터 전송
+          //alert(JSON.stringify(res)) //확인
+          infoData = jQuery.parseJSON(JSON.stringify(res))
+
+          //페이지 띄우기
+          document.getElementById("form1").style.display = "none"
+          document.getElementById("form2").style.display = "block"
+          $('#form5_next_bt').on("click", function() {
+            document.getElementById("form5").style.display = "none"
+            document.getElementById("form6").style.display = "none"
+            document.getElementById("form7").style.display = "block"
+          })
+
+          //변수 집어넣기
+          $('#input2-1').val(infoData[0]['name']) //이름
+          if (infoData[0]['sex'] == 'M') { //성별
+            document.getElementsByName("radio2-1")[0].checked = true
+          } else if (infoData[0]['sex'] == 'F') {
+            document.getElementsByName("radio2-1")[1].checked = true
+          }
+          var tmp_resident = infoData[0]['resident_no'].split('-') //주민등록번호
+          $('#input2-2').val(tmp_resident[0])
+          $('#input2-3').val(tmp_resident[1])
+          $('#input2-4').val(infoData[0]['address']) //주소
+          $('#input2-5').val(infoData[0]['phone']) //전화번호
+          $('#input2-6').val(infoData[0]['doctor_hospital']) //담당의 소속병원
+          $('#input2-7').val(infoData[0]['doctor_department']) //소속과
+          $('#input2-8').val(infoData[0]['doctor_name']) //담당의 이름
+          $('#input2-9').val(infoData[0]['charge_pdxen']) //피디젠 수령인
+          if (infoData[0]['consent_date'] != '---') { //동의 날짜
+            var tmp_year = infoData[0]['consent_date'].substring(0, 4) //년도
+            var tmp_c1 = document.getElementById("combo2-1-1")
+            for (var i=0; i<tmp_c1.options.length ; i++) {
+              if (tmp_c1.options[i].text == tmp_year) {
+                tmp_c1.selectedIndex = i;
+              }
+            }
+            var tmp_month = infoData[0]['consent_date'].substring(4, 6) //월
+            var tmp_c2 = document.getElementById("combo2-1-2")
+            for (var i=0; i<tmp_c2.options.length ; i++) {
+              if (tmp_c2.options[i].text == tmp_month) {
+                tmp_c2.selectedIndex = i;
+              }
+            }
+            var tmp_day = infoData[0]['consent_date'].substring(6) //일
+            var tmp_c3 = document.getElementById("combo2-1-3")
+            for (var i=0; i<tmp_c3.options.length ; i++) {
+              if (tmp_c3.options[i].text == tmp_day) {
+                tmp_c3.selectedIndex = i;
+              }
+            }
+          }
+          if (infoData[0]['suitable'] == 'Y') { //적합 여부
+            document.getElementsByName("radio3-1")[0].checked = true
+          } else if (infoData[0]['suitable'] == 'N') {
+            document.getElementsByName("radio3-1")[1].checked = true
+          }
+          if (infoData[0]['evaluate_date'] != '---') { //평가 날짜
+            var tmp_year = infoData[0]['evaluate_date'].substring(0, 4) //년도
+            var tmp_c1 = document.getElementById("combo3-1-1")
+            for (var i=0; i<tmp_c1.options.length ; i++) {
+              if (tmp_c1.options[i].text == tmp_year) {
+                tmp_c1.selectedIndex = i;
+              }
+            }
+            var tmp_month = infoData[0]['evaluate_date'].substring(4, 6) //월
+            var tmp_c2 = document.getElementById("combo3-1-2")
+            for (var i=0; i<tmp_c2.options.length ; i++) {
+              if (tmp_c2.options[i].text == tmp_month) {
+                tmp_c2.selectedIndex = i;
+              }
+            }
+            var tmp_day = infoData[0]['evaluate_date'].substring(6) //일
+            var tmp_c3 = document.getElementById("combo3-1-3")
+            for (var i=0; i<tmp_c3.options.length ; i++) {
+              if (tmp_c3.options[i].text == tmp_day) {
+                tmp_c3.selectedIndex = i;
+              }
+            }
+          }
+          $('#input4-1').val(infoData[0]['identification']) //공여자 식별번호
+          if (infoData[0]['surgery_date'] != '---') { //지방흡입 수술일(=조직 채취일)
+            var tmp_year = infoData[0]['surgery_date'].substring(0, 4) //년도
+            var tmp_c1 = document.getElementById("combo4-1-1")
+            for (var i=0; i<tmp_c1.options.length ; i++) {
+              if (tmp_c1.options[i].text == tmp_year) {
+                tmp_c1.selectedIndex = i;
+              }
+            }
+            var tmp_month = infoData[0]['surgery_date'].substring(4, 6) //월
+            var tmp_c2 = document.getElementById("combo4-1-2")
+            for (var i=0; i<tmp_c2.options.length ; i++) {
+              if (tmp_c2.options[i].text == tmp_month) {
+                tmp_c2.selectedIndex = i;
+              }
+            }
+            var tmp_day = infoData[0]['surgery_date'].substring(6) //일
+            var tmp_c3 = document.getElementById("combo4-1-3")
+            for (var i=0; i<tmp_c3.options.length ; i++) {
+              if (tmp_c3.options[i].text == tmp_day) {
+                tmp_c3.selectedIndex = i;
+              }
+            }
+          }
+          $('#input4-6').val(infoData[0]['amount']) //지방조직량
+          if (infoData[0]['check_1'] == 'Y') { //점검내용_1
+            document.getElementsByName("radio4-1")[0].checked = true
+          } else if (infoData[0]['check_1'] == 'N') {
+            document.getElementsByName("radio4-1")[1].checked = true
+          }
+          $('#input4-7').val(infoData[0]['check_1_note']) //점검내용_1_비고
+          if (infoData[0]['check_2'] == 'Y') { //점검내용_2
+            document.getElementsByName("radio4-2")[0].checked = true
+          } else if (infoData[0]['check_2'] == 'N') {
+            document.getElementsByName("radio4-2")[1].checked = true
+          }
+          $('#input4-8').val(infoData[0]['check_2_note']) //점검내용_2_비고
+          if (infoData[0]['check_3'] == 'Y') { //점검내용_3
+            document.getElementsByName("radio4-3")[0].checked = true
+          } else if (infoData[0]['check_3'] == 'N') {
+            document.getElementsByName("radio4-3")[1].checked = true
+          }
+          $('#input4-9').val(infoData[0]['check_3_note']) //점검내용_3_비고
+          if (infoData[0]['check_4'] == 'Y') { //점검내용_4
+            document.getElementsByName("radio4-4")[0].checked = true
+          } else if (infoData[0]['check_4'] == 'N') {
+            document.getElementsByName("radio4-4")[1].checked = true
+          }
+          $('#input4-10').val(infoData[0]['check_4_note']) //점검내용_4_비고
+          if (infoData[0]['check_5'] == 'Y') { //점검내용_5
+            document.getElementsByName("radio4-5")[0].checked = true
+          } else if (infoData[0]['check_5'] == 'N') {
+            document.getElementsByName("radio4-5")[1].checked = true
+          }
+          $('#input4-11').val(infoData[0]['check_5_note']) //점검내용_5_비고
+          if (infoData[0]['check_6'] == 'Y') { //점검내용_6
+            document.getElementsByName("radio4-6")[0].checked = true
+          } else if (infoData[0]['check_6'] == 'N') {
+            document.getElementsByName("radio4-6")[1].checked = true
+          }
+          $('#input4-12').val(infoData[0]['check_6_note']) //점검내용_6_비고
+          $('#input4-14').val(infoData[0]['charge_hospital']) //병원 담당자
+          $('#input5-2').val(infoData[0]['race']) //인종
+          $('#input5-3').val(infoData[0]['age']) //나이
+          $('#input5-4').val(infoData[0]['cell_origin']) //세포의 기원
+          if (infoData[0]['blood_test_1'] == 'Y') { //검사항목_1
+            document.getElementsByName("radio5-2")[0].checked = true
+          } else if (infoData[0]['blood_test_1'] == 'N') {
+            document.getElementsByName("radio5-2")[1].checked = true
+          }
+          if (infoData[0]['blood_test_2'] == '+') { //검사항목_2
+            document.getElementsByName("radio5-3")[0].checked = true
+          } else if (infoData[0]['blood_test_2'] == '-') {
+            document.getElementsByName("radio5-3")[1].checked = true
+          }
+          if (infoData[0]['blood_test_3'] == '+') { //검사항목_3
+            document.getElementsByName("radio5-4")[0].checked = true
+          } else if (infoData[0]['blood_test_3'] == '-') {
+            document.getElementsByName("radio5-4")[1].checked = true
+          }
+          if (infoData[0]['blood_test_4'] == '+') { //검사항목_4
+            document.getElementsByName("radio5-5")[0].checked = true
+          } else if (infoData[0]['blood_test_4'] == '-') {
+            document.getElementsByName("radio5-5")[1].checked = true
+          }
+          if (infoData[0]['blood_test_5'] == '+') { //검사항목_5
+            document.getElementsByName("radio5-6")[0].checked = true
+          } else if (infoData[0]['blood_test_5'] == '-') {
+            document.getElementsByName("radio5-6")[1].checked = true
+          }
+          if (infoData[0]['blood_test_6'] == '+') { //검사항목_6
+            document.getElementsByName("radio5-7")[0].checked = true
+          } else if (infoData[0]['blood_test_6'] == '-') {
+            document.getElementsByName("radio5-7")[1].checked = true
+          }
+          if (infoData[0]['blood_test_7'] == '+') { //검사항목_7
+            document.getElementsByName("radio5-8")[0].checked = true
+          } else if (infoData[0]['blood_test_7'] == '-') {
+            document.getElementsByName("radio5-8")[1].checked = true
+          }
+          if (infoData[0]['blood_test_8'] == '+') { //검사항목_8
+            document.getElementsByName("radio5-9")[0].checked = true
+          } else if (infoData[0]['blood_test_8'] == '-') {
+            document.getElementsByName("radio5-9")[1].checked = true
+          }
+          if (infoData[0]['blood_test_9'] == '+') { //검사항목_9
+            document.getElementsByName("radio5-10")[0].checked = true
+          } else if (infoData[0]['blood_test_9'] == '-') {
+            document.getElementsByName("radio5-10")[1].checked = true
+          }
+          if (infoData[0]['blood_test_10'] == '+') { //검사항목_10
+            document.getElementsByName("radio5-11")[0].checked = true
+          } else if (infoData[0]['blood_test_10'] == '-') {
+            document.getElementsByName("radio5-11")[1].checked = true
+          }
+          if (infoData[0]['blood_test_11'] == '+') { //검사항목_11
+            document.getElementsByName("radio5-12")[0].checked = true
+          } else if (infoData[0]['blood_test_11'] == '-') {
+            document.getElementsByName("radio5-12")[1].checked = true
+          }
+          if (infoData[0]['blood_test_12'] == '+') { //검사항목_12
+            document.getElementsByName("radio5-13")[0].checked = true
+          } else if (infoData[0]['blood_test_12'] == '-') {
+            document.getElementsByName("radio5-13")[1].checked = true
+          }
+          if (infoData[0]['blood_test_13'] == '+') { //검사항목_13
+            document.getElementsByName("radio5-14")[0].checked = true
+          } else if (infoData[0]['blood_test_13'] == '-') {
+            document.getElementsByName("radio5-14")[1].checked = true
+          }
+          if (infoData[0]['blood_test_14'] == 'Y') { //검사항목_14
+            document.getElementsByName("radio5-15")[0].checked = true
+          } else if (infoData[0]['blood_test_14'] == 'N') {
+            document.getElementsByName("radio5-15")[1].checked = true
+          }
+          if (infoData[0]['safety_test_1'] == 'Y') { //안전성 평가_1
+            document.getElementsByName("radio7-1")[0].checked = true
+          } else if (infoData[0]['safety_test_1'] == 'N') {
+            document.getElementsByName("radio7-1")[1].checked = true
+          }
+          if (infoData[0]['safety_test_2'] == 'Y') { //안전성 평가_2
+            document.getElementsByName("radio7-2")[0].checked = true
+          } else if (infoData[0]['safety_test_2'] == 'N') {
+            document.getElementsByName("radio7-2")[1].checked = true
+          }
+          if (infoData[0]['safety_test_3'] == 'Y') { //안전성 평가_3
+            document.getElementsByName("radio7-3")[0].checked = true
+          } else if (infoData[0]['safety_test_3'] == 'N') {
+            document.getElementsByName("radio7-3")[1].checked = true
+          }
+          if (infoData[0]['safety_test_4'] == 'Y') { //안전성 평가_4
+            document.getElementsByName("radio7-4")[0].checked = true
+          } else if (infoData[0]['safety_test_4'] == 'N') {
+            document.getElementsByName("radio7-4")[1].checked = true
+          }
+          if (infoData[0]['safety_test_5'] == 'Y') { //안전성 평가_5
+            document.getElementsByName("radio7-5")[0].checked = true
+          } else if (infoData[0]['safety_test_5'] == 'N') {
+            document.getElementsByName("radio7-5")[1].checked = true
+          }
+          if (infoData[0]['safety_test_6'] == 'Y') { //안전성 평가_6
+            document.getElementsByName("radio7-6")[0].checked = true
+          } else if (infoData[0]['safety_test_6'] == 'N') {
+            document.getElementsByName("radio7-6")[1].checked = true
+          }
+          if (infoData[0]['safety_test_7'] == 'Y') { //안전성 평가_7
+            document.getElementsByName("radio7-7")[0].checked = true
+          } else if (infoData[0]['safety_test_7'] == 'N') {
+            document.getElementsByName("radio7-7")[1].checked = true
+          }
+          if (infoData[0]['safety_test_8'] == 'Y') { //안전성 평가_8
+            document.getElementsByName("radio7-8")[0].checked = true
+          } else if (infoData[0]['safety_test_8'] == 'N') {
+            document.getElementsByName("radio7-8")[1].checked = true
+          }
+          if (infoData[0]['safety_test_9'] == 'Y') { //안전성 평가_9
+            document.getElementsByName("radio7-9")[0].checked = true
+          } else if (infoData[0]['safety_test_9'] == 'N') {
+            document.getElementsByName("radio7-9")[1].checked = true
+          }
+          if (infoData[0]['safety_test_10'] == 'Y') { //안전성 평가_10
+            document.getElementsByName("radio7-10")[0].checked = true
+          } else if (infoData[0]['safety_test_10'] == 'N') {
+            document.getElementsByName("radio7-10")[1].checked = true
+          }
+          if (infoData[0]['safety_test_11'] == 'Y') { //안전성 평가_11
+            document.getElementsByName("radio7-11")[0].checked = true
+          } else if (infoData[0]['safety_test_11'] == 'N') {
+            document.getElementsByName("radio7-11")[1].checked = true
+          }
+        },
+        error: function(e) {
+          alert(e)
+        }
+      })
+    }
+
+    //수정 완료 버튼 클릭
+    function modifyInfo(index) {
+      $.ajax({
+        url: '/info2-2',
+        type: 'post',
+        data: { data: index },
+        dataType: 'json',
+
+        success: function(res) { //form 2,3,4,5,7에 데이터 전송
+          //alert(JSON.stringify(res)) //확인
+          infoData = jQuery.parseJSON(JSON.stringify(res))
+
+          //페이지 띄우기
+          document.getElementById("form1").style.display = "none"
+          document.getElementById("form2").style.display = "block"
+          $('#form5_next_bt').on("click", function() {
+            document.getElementById("form5").style.display = "none"
+            document.getElementById("form6").style.display = "none"
+            document.getElementById("form7").style.display = "none"
+            document.getElementById("form8").style.display = "block"
+          })
+
+          //변수 집어넣기
+          $('#input2-1').val(infoData[0]['name']) //이름
+          if (infoData[0]['sex'] == 'M') { //성별
+            document.getElementsByName("radio2-1")[0].checked = true
+          } else if (infoData[0]['sex'] == 'F') {
+            document.getElementsByName("radio2-1")[1].checked = true
+          }
+          var tmp_resident = infoData[0]['resident_no'].split('-') //주민등록번호
+          $('#input2-2').val(tmp_resident[0])
+          $('#input2-3').val(tmp_resident[1])
+          $('#input2-4').val(infoData[0]['address']) //주소
+          $('#input2-5').val(infoData[0]['phone']) //전화번호
+          $('#input2-6').val(infoData[0]['doctor_hospital']) //담당의 소속병원
+          $('#input2-7').val(infoData[0]['doctor_department']) //소속과
+          $('#input2-8').val(infoData[0]['doctor_name']) //담당의 이름
+          $('#input2-9').val(infoData[0]['charge_pdxen']) //피디젠 수령인
+          if (infoData[0]['consent_date'] != '---') { //동의 날짜
+            var tmp_year = infoData[0]['consent_date'].substring(0, 4) //년도
+            var tmp_c1 = document.getElementById("combo2-1-1")
+            for (var i=0; i<tmp_c1.options.length ; i++) {
+              if (tmp_c1.options[i].text == tmp_year) {
+                tmp_c1.selectedIndex = i;
+              }
+            }
+            var tmp_month = infoData[0]['consent_date'].substring(4, 6) //월
+            var tmp_c2 = document.getElementById("combo2-1-2")
+            for (var i=0; i<tmp_c2.options.length ; i++) {
+              if (tmp_c2.options[i].text == tmp_month) {
+                tmp_c2.selectedIndex = i;
+              }
+            }
+            var tmp_day = infoData[0]['consent_date'].substring(6) //일
+            var tmp_c3 = document.getElementById("combo2-1-3")
+            for (var i=0; i<tmp_c3.options.length ; i++) {
+              if (tmp_c3.options[i].text == tmp_day) {
+                tmp_c3.selectedIndex = i;
+              }
+            }
+          }
+          if (infoData[0]['suitable'] == 'Y') { //적합 여부
+            document.getElementsByName("radio3-1")[0].checked = true
+          } else if (infoData[0]['suitable'] == 'N') {
+            document.getElementsByName("radio3-1")[1].checked = true
+          }
+          if (infoData[0]['evaluate_date'] != '---') { //평가 날짜
+            var tmp_year = infoData[0]['evaluate_date'].substring(0, 4) //년도
+            var tmp_c1 = document.getElementById("combo3-1-1")
+            for (var i=0; i<tmp_c1.options.length ; i++) {
+              if (tmp_c1.options[i].text == tmp_year) {
+                tmp_c1.selectedIndex = i;
+              }
+            }
+            var tmp_month = infoData[0]['evaluate_date'].substring(4, 6) //월
+            var tmp_c2 = document.getElementById("combo3-1-2")
+            for (var i=0; i<tmp_c2.options.length ; i++) {
+              if (tmp_c2.options[i].text == tmp_month) {
+                tmp_c2.selectedIndex = i;
+              }
+            }
+            var tmp_day = infoData[0]['evaluate_date'].substring(6) //일
+            var tmp_c3 = document.getElementById("combo3-1-3")
+            for (var i=0; i<tmp_c3.options.length ; i++) {
+              if (tmp_c3.options[i].text == tmp_day) {
+                tmp_c3.selectedIndex = i;
+              }
+            }
+          }
+          $('#input4-1').val(infoData[0]['identification']) //공여자 식별번호
+          if (infoData[0]['surgery_date'] != '---') { //지방흡입 수술일(=조직 채취일)
+            var tmp_year = infoData[0]['surgery_date'].substring(0, 4) //년도
+            var tmp_c1 = document.getElementById("combo4-1-1")
+            for (var i=0; i<tmp_c1.options.length ; i++) {
+              if (tmp_c1.options[i].text == tmp_year) {
+                tmp_c1.selectedIndex = i;
+              }
+            }
+            var tmp_month = infoData[0]['surgery_date'].substring(4, 6) //월
+            var tmp_c2 = document.getElementById("combo4-1-2")
+            for (var i=0; i<tmp_c2.options.length ; i++) {
+              if (tmp_c2.options[i].text == tmp_month) {
+                tmp_c2.selectedIndex = i;
+              }
+            }
+            var tmp_day = infoData[0]['surgery_date'].substring(6) //일
+            var tmp_c3 = document.getElementById("combo4-1-3")
+            for (var i=0; i<tmp_c3.options.length ; i++) {
+              if (tmp_c3.options[i].text == tmp_day) {
+                tmp_c3.selectedIndex = i;
+              }
+            }
+          }
+          $('#input4-6').val(infoData[0]['amount']) //지방조직량
+          if (infoData[0]['check_1'] == 'Y') { //점검내용_1
+            document.getElementsByName("radio4-1")[0].checked = true
+          } else if (infoData[0]['check_1'] == 'N') {
+            document.getElementsByName("radio4-1")[1].checked = true
+          }
+          $('#input4-7').val(infoData[0]['check_1_note']) //점검내용_1_비고
+          if (infoData[0]['check_2'] == 'Y') { //점검내용_2
+            document.getElementsByName("radio4-2")[0].checked = true
+          } else if (infoData[0]['check_2'] == 'N') {
+            document.getElementsByName("radio4-2")[1].checked = true
+          }
+          $('#input4-8').val(infoData[0]['check_2_note']) //점검내용_2_비고
+          if (infoData[0]['check_3'] == 'Y') { //점검내용_3
+            document.getElementsByName("radio4-3")[0].checked = true
+          } else if (infoData[0]['check_3'] == 'N') {
+            document.getElementsByName("radio4-3")[1].checked = true
+          }
+          $('#input4-9').val(infoData[0]['check_3_note']) //점검내용_3_비고
+          if (infoData[0]['check_4'] == 'Y') { //점검내용_4
+            document.getElementsByName("radio4-4")[0].checked = true
+          } else if (infoData[0]['check_4'] == 'N') {
+            document.getElementsByName("radio4-4")[1].checked = true
+          }
+          $('#input4-10').val(infoData[0]['check_4_note']) //점검내용_4_비고
+          if (infoData[0]['check_5'] == 'Y') { //점검내용_5
+            document.getElementsByName("radio4-5")[0].checked = true
+          } else if (infoData[0]['check_5'] == 'N') {
+            document.getElementsByName("radio4-5")[1].checked = true
+          }
+          $('#input4-11').val(infoData[0]['check_5_note']) //점검내용_5_비고
+          if (infoData[0]['check_6'] == 'Y') { //점검내용_6
+            document.getElementsByName("radio4-6")[0].checked = true
+          } else if (infoData[0]['check_6'] == 'N') {
+            document.getElementsByName("radio4-6")[1].checked = true
+          }
+          $('#input4-12').val(infoData[0]['check_6_note']) //점검내용_6_비고
+          $('#input4-14').val(infoData[0]['charge_hospital']) //병원 담당자
+          $('#input5-2').val(infoData[0]['race']) //인종
+          $('#input5-3').val(infoData[0]['age']) //나이
+          $('#input5-4').val(infoData[0]['cell_origin']) //세포의 기원
+          if (infoData[0]['blood_test_1'] == 'Y') { //검사항목_1
+            document.getElementsByName("radio5-2")[0].checked = true
+          } else if (infoData[0]['blood_test_1'] == 'N') {
+            document.getElementsByName("radio5-2")[1].checked = true
+          }
+          if (infoData[0]['blood_test_2'] == '+') { //검사항목_2
+            document.getElementsByName("radio5-3")[0].checked = true
+          } else if (infoData[0]['blood_test_2'] == '-') {
+            document.getElementsByName("radio5-3")[1].checked = true
+          }
+          if (infoData[0]['blood_test_3'] == '+') { //검사항목_3
+            document.getElementsByName("radio5-4")[0].checked = true
+          } else if (infoData[0]['blood_test_3'] == '-') {
+            document.getElementsByName("radio5-4")[1].checked = true
+          }
+          if (infoData[0]['blood_test_4'] == '+') { //검사항목_4
+            document.getElementsByName("radio5-5")[0].checked = true
+          } else if (infoData[0]['blood_test_4'] == '-') {
+            document.getElementsByName("radio5-5")[1].checked = true
+          }
+          if (infoData[0]['blood_test_5'] == '+') { //검사항목_5
+            document.getElementsByName("radio5-6")[0].checked = true
+          } else if (infoData[0]['blood_test_5'] == '-') {
+            document.getElementsByName("radio5-6")[1].checked = true
+          }
+          if (infoData[0]['blood_test_6'] == '+') { //검사항목_6
+            document.getElementsByName("radio5-7")[0].checked = true
+          } else if (infoData[0]['blood_test_6'] == '-') {
+            document.getElementsByName("radio5-7")[1].checked = true
+          }
+          if (infoData[0]['blood_test_7'] == '+') { //검사항목_7
+            document.getElementsByName("radio5-8")[0].checked = true
+          } else if (infoData[0]['blood_test_7'] == '-') {
+            document.getElementsByName("radio5-8")[1].checked = true
+          }
+          if (infoData[0]['blood_test_8'] == '+') { //검사항목_8
+            document.getElementsByName("radio5-9")[0].checked = true
+          } else if (infoData[0]['blood_test_8'] == '-') {
+            document.getElementsByName("radio5-9")[1].checked = true
+          }
+          if (infoData[0]['blood_test_9'] == '+') { //검사항목_9
+            document.getElementsByName("radio5-10")[0].checked = true
+          } else if (infoData[0]['blood_test_9'] == '-') {
+            document.getElementsByName("radio5-10")[1].checked = true
+          }
+          if (infoData[0]['blood_test_10'] == '+') { //검사항목_10
+            document.getElementsByName("radio5-11")[0].checked = true
+          } else if (infoData[0]['blood_test_10'] == '-') {
+            document.getElementsByName("radio5-11")[1].checked = true
+          }
+          if (infoData[0]['blood_test_11'] == '+') { //검사항목_11
+            document.getElementsByName("radio5-12")[0].checked = true
+          } else if (infoData[0]['blood_test_11'] == '-') {
+            document.getElementsByName("radio5-12")[1].checked = true
+          }
+          if (infoData[0]['blood_test_12'] == '+') { //검사항목_12
+            document.getElementsByName("radio5-13")[0].checked = true
+          } else if (infoData[0]['blood_test_12'] == '-') {
+            document.getElementsByName("radio5-13")[1].checked = true
+          }
+          if (infoData[0]['blood_test_13'] == '+') { //검사항목_13
+            document.getElementsByName("radio5-14")[0].checked = true
+          } else if (infoData[0]['blood_test_13'] == '-') {
+            document.getElementsByName("radio5-14")[1].checked = true
+          }
+          if (infoData[0]['blood_test_14'] == 'Y') { //검사항목_14
+            document.getElementsByName("radio5-15")[0].checked = true
+          } else if (infoData[0]['blood_test_14'] == 'N') {
+            document.getElementsByName("radio5-15")[1].checked = true
+          }
+          if (infoData[0]['safety_test_1'] == 'Y') { //안전성 평가_1
+            document.getElementsByName("radio8-1")[0].checked = true
+          } else if (infoData[0]['safety_test_1'] == 'N') {
+            document.getElementsByName("radio8-1")[1].checked = true
+          }
+          if (infoData[0]['safety_test_2'] == 'Y') { //안전성 평가_2
+            document.getElementsByName("radio8-2")[0].checked = true
+          } else if (infoData[0]['safety_test_2'] == 'N') {
+            document.getElementsByName("radio8-2")[1].checked = true
+          }
+          if (infoData[0]['safety_test_3'] == 'Y') { //안전성 평가_3
+            document.getElementsByName("radio8-3")[0].checked = true
+          } else if (infoData[0]['safety_test_3'] == 'N') {
+            document.getElementsByName("radio8-3")[1].checked = true
+          }
+          if (infoData[0]['safety_test_4'] == 'Y') { //안전성 평가_4
+            document.getElementsByName("radio8-4")[0].checked = true
+          } else if (infoData[0]['safety_test_4'] == 'N') {
+            document.getElementsByName("radio8-4")[1].checked = true
+          }
+          if (infoData[0]['safety_test_5'] == 'Y') { //안전성 평가_5
+            document.getElementsByName("radio8-5")[0].checked = true
+          } else if (infoData[0]['safety_test_5'] == 'N') {
+            document.getElementsByName("radio8-5")[1].checked = true
+          }
+          if (infoData[0]['safety_test_6'] == 'Y') { //안전성 평가_6
+            document.getElementsByName("radio8-6")[0].checked = true
+          } else if (infoData[0]['safety_test_6'] == 'N') {
+            document.getElementsByName("radio8-6")[1].checked = true
+          }
+          if (infoData[0]['safety_test_7'] == 'Y') { //안전성 평가_7
+            document.getElementsByName("radio8-7")[0].checked = true
+          } else if (infoData[0]['safety_test_7'] == 'N') {
+            document.getElementsByName("radio8-7")[1].checked = true
+          }
+          if (infoData[0]['safety_test_8'] == 'Y') { //안전성 평가_8
+            document.getElementsByName("radio8-8")[0].checked = true
+          } else if (infoData[0]['safety_test_8'] == 'N') {
+            document.getElementsByName("radio8-8")[1].checked = true
+          }
+          if (infoData[0]['safety_test_9'] == 'Y') { //안전성 평가_9
+            document.getElementsByName("radio8-9")[0].checked = true
+          } else if (infoData[0]['safety_test_9'] == 'N') {
+            document.getElementsByName("radio8-9")[1].checked = true
+          }
+          if (infoData[0]['safety_test_10'] == 'Y') { //안전성 평가_10
+            document.getElementsByName("radio8-10")[0].checked = true
+          } else if (infoData[0]['safety_test_10'] == 'N') {
+            document.getElementsByName("radio8-10")[1].checked = true
+          }
+          if (infoData[0]['safety_test_11'] == 'Y') { //안전성 평가_11
+            document.getElementsByName("radio8-11")[0].checked = true
+          } else if (infoData[0]['safety_test_11'] == 'N') {
+            document.getElementsByName("radio8-11")[1].checked = true
+          }
+        },
+        error: function(e) {
+          alert(e)
+        }
+      })
+    }
+
+    //json을 csv 형식으로 변환하는 함수
+    function convertToCSV(objArray) {
+        var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+        var str = '';
+
+        for (var i = 0; i < array.length; i++) {
+            var line = '';
+            for (var index in array[i]) {
+                if (line != '') line += ','
+                line += array[i][index];
+            }
+            str += line + '\r\n';
+        }
+        return str;
+    }
+
+    //csv 파일 다운로드 함수
+    function exportCSVFile(headers, items, fileTitle) {
+        if (headers) {
+            items.unshift(headers);
+        }
+        var jsonObject = JSON.stringify(items);
+        var csv = this.convertToCSV(jsonObject);
+        var exportedFilenmae = fileTitle + '.csv' || 'export.csv';
+        var blob = new Blob(["\ufeff" + csv], {
+            type: 'text/csv;charset=utf-8;'
+        });
+        if (navigator.msSaveBlob) { // IE 10+
+            navigator.msSaveBlob(blob, exportedFilenmae);
+        } else {
+            var link = document.createElement("a");
+            if (link.download !== undefined) {
+                var url = URL.createObjectURL(blob);
+                link.setAttribute("href", url);
+                link.setAttribute("download", exportedFilenmae);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+    }
+
+    var headers = {
+        identification: "공여자 ID",
+        name: "이름",
+        sex: "성별(M/F)",
+        age: "나이",
+        surgery_date: "조직 채취일",
+        doctor_hospital: "조직 채취기관",
+        doctor_name: "담당의"
+    };
+    //서버DB 다운로드 함수
+    function download_DB() {
+        var itemsNotFormatted = server_DB;
+        var itemsFormatted = [];
+        itemsNotFormatted.forEach((item) => {
+            itemsFormatted.push({
+              identification: item.identification,
+              name: item.name,
+              sex: item.sex,
+              age: item.age,
+              surgery_date: item.surgery_date,
+              doctor_hospital: item.doctor_hospital,
+              doctor_name: item.doctor_name
+            });
+        });
+        var fileTitle = "my_export";
+        exportCSVFile(headers, itemsFormatted, fileTitle);
+    }
+
+    //데이터 생성 날짜 함수
+    function createDate() {
+      var d = new Date()
+      var str = ""
+      str += d.getFullYear() + "/"
+      if ((d.getMonth()+1) < 10) { str += "0" }
+      str += d.getMonth()+1 + "/"
+      if (d.getDate() < 10) { str += "0" }
+      str += d.getDate() + "/"
+      if (d.getHours() < 10) { str += "0" }
+      str += d.getHours() + ":"
+      if (d.getMinutes() < 10) { str += "0" }
+      str += d.getMinutes()
+      return str
+    }
+
+    //입력값 전송 함수
+    function getValue(objId) {
+      if (document.getElementById(objId).value == "") {
+        return "-"
+      }
+      return document.getElementById(objId).value
+    }
+
+    //라디오버튼 값 전송 함수
+    function radioCheck(radioName) {
+        var tmp_radio = document.getElementsByName(radioName)
+        var tmp_check = 0
+        var result = ""
+        for (var i = 0; i < tmp_radio.length; i++) {
+            if (tmp_radio[i].checked == true) {
+                result = tmp_radio[i].value
+                tmp_check++
+            }
+        }
+        if (tmp_check == 0) {
+            result = "Null"
+        }
+        return result
+    }
+
+    //콤보박스 값 전송 함수
+    function comboCheck(comboId) {
+        var elt = document.getElementById(comboId);
+        if (elt.selectedIndex == -1)
+            return null;
+        return elt.options[elt.selectedIndex].text;
+    }
+
+    //페이지 null값 확인 함수
+    var tmp_page1;
+    function nullCheck1() {
+      if ((getValue('input2-1') == '-') ||
+          (radioCheck('radio2-1') == 'Null') ||
+          (getValue('input2-2') == '-') ||
+          (getValue('input2-3') == '-') ||
+          (getValue('input2-4') == '-') ||
+          (getValue('input2-5') == '-') ||
+          (getValue('input2-6') == '-') ||
+          (getValue('input2-7') == '-') ||
+          (getValue('input2-8') == '-') ||
+          (getValue('input2-9') == '-') ||
+          (comboCheck('combo2-1-1') == '-') ||
+          (comboCheck('combo2-1-2') == '-') ||
+          (comboCheck('combo2-1-3') == '-')) {
+        tmp_page1 = 'X'
+      } else {
+        tmp_page1 = 'O'
+      }
+      return tmp_page1;
+    }
+
+    var tmp_page2;
+    function nullCheck2() {
+      if ((getValue('input3-1') == '-') ||
+          (getValue('input3-2') == '-') ||
+          (getValue('input3-3') == '-') ||
+          (radioCheck('radio3-1') == 'Null') ||
+          (getValue('input3-4') == '-') ||
+          (comboCheck('combo3-1-1') == '-') ||
+          (comboCheck('combo3-1-2') == '-') ||
+          (comboCheck('combo3-1-3') == '-')) {
+        tmp_page2 = 'X'
+      } else {
+        tmp_page2 = 'O'
+      }
+      return tmp_page2;
+    }
+
+    var tmp_page3;
+    function nullCheck3() {
+      if ((getValue('input4-1') == '-') ||
+          (getValue('input4-2') == '-') ||
+          (getValue('input4-3') == '-') ||
+          (getValue('input4-4') == '-') ||
+          (getValue('input4-5') == '-') ||
+          (comboCheck('combo4-1-1') == '-') ||
+          (comboCheck('combo4-1-2') == '-') ||
+          (comboCheck('combo4-1-3') == '-') ||
+          (getValue('input4-6') == '-') ||
+          (radioCheck('radio4-1') == 'Null') ||
+          (radioCheck('radio4-2') == 'Null') ||
+          (radioCheck('radio4-3') == 'Null') ||
+          (radioCheck('radio4-4') == 'Null') ||
+          (radioCheck('radio4-5') == 'Null') ||
+          (radioCheck('radio4-6') == 'Null') ||
+          (getValue('input4-13') == '-') ||
+          (getValue('input4-14') == '-')) {
+        tmp_page3 = 'X'
+      } else {
+        tmp_page3 = 'O'
+      }
+      return tmp_page3;
+    }
+
+    var tmp_page4;
+    function nullCheck4() {
+      if ((getValue('input5-1') == '-') ||
+          (getValue('input5-2') == '-') ||
+          (radioCheck('radio5-1') == 'Null') ||
+          (getValue('input5-3') == '-') ||
+          (getValue('input5-4') == '-') ||
+          (comboCheck('combo5-1-1') == '-') ||
+          (comboCheck('combo5-1-2') == '-') ||
+          (comboCheck('combo5-1-3') == '-') ||
+          (getValue('input5-5') == '-') ||
+          (radioCheck('radio5-1') == 'Null') ||
+          (radioCheck('radio5-2') == 'Null') ||
+          (radioCheck('radio5-3') == 'Null') ||
+          (radioCheck('radio5-4') == 'Null') ||
+          (radioCheck('radio5-5') == 'Null') ||
+          (radioCheck('radio5-6') == 'Null') ||
+          (radioCheck('radio5-7') == 'Null') ||
+          (radioCheck('radio5-8') == 'Null') ||
+          (radioCheck('radio5-9') == 'Null') ||
+          (radioCheck('radio5-10') == 'Null') ||
+          (radioCheck('radio5-11') == 'Null') ||
+          (radioCheck('radio5-12') == 'Null') ||
+          (radioCheck('radio5-13') == 'Null') ||
+          (radioCheck('radio5-14') == 'Null')) {
+        tmp_page4 = 'X'
+      } else {
+        tmp_page4 = 'O'
+      }
+      return tmp_page4;
+    }
+
+    var tmp_page5;
+    function nullCheck5() {
+      if ((radioCheck('radio6-1') == 'Null') ||
+          (radioCheck('radio6-2') == 'Null') ||
+          (radioCheck('radio6-3') == 'Null') ||
+          (radioCheck('radio6-4') == 'Null') ||
+          (radioCheck('radio6-5') == 'Null') ||
+          (radioCheck('radio6-6') == 'Null') ||
+          (radioCheck('radio6-7') == 'Null') ||
+          (radioCheck('radio6-8') == 'Null') ||
+          (radioCheck('radio6-9') == 'Null') ||
+          (radioCheck('radio6-10') == 'Null') ||
+          (radioCheck('radio6-11') == 'Null')) {
+        tmp_page5 = 'X'
+      } else {
+        tmp_page5 = 'O'
+      }
+      return tmp_page5;
+    }
+
+    //페이지 null값 확인 함수2
+    var tmp_page11;
+    function nullCheck11() {
+      if ((getValue('input2-1') == '-') ||
+          (radioCheck('radio2-1') == 'Null') ||
+          (getValue('input2-2') == '-') ||
+          (getValue('input2-3') == '-') ||
+          (getValue('input2-4') == '-') ||
+          (getValue('input2-5') == '-') ||
+          (getValue('input2-6') == '-') ||
+          (getValue('input2-7') == '-') ||
+          (getValue('input2-8') == '-') ||
+          (getValue('input2-9') == '-') ||
+          (comboCheck('combo2-1-1') == '-') ||
+          (comboCheck('combo2-1-2') == '-') ||
+          (comboCheck('combo2-1-3') == '-')) {
+        tmp_page11 = 'X'
+      } else {
+        tmp_page11 = 'O'
+      }
+      return tmp_page11;
+    }
+
+    var tmp_page22;
+    function nullCheck22() {
+      if ((getValue('input3-1') == '-') ||
+          (getValue('input3-2') == '-') ||
+          (getValue('input3-3') == '-') ||
+          (radioCheck('radio3-1') == 'Null') ||
+          (getValue('input3-4') == '-') ||
+          (comboCheck('combo3-1-1') == '-') ||
+          (comboCheck('combo3-1-2') == '-') ||
+          (comboCheck('combo3-1-3') == '-')) {
+        tmp_page22 = 'X'
+      } else {
+        tmp_page22 = 'O'
+      }
+      return tmp_page22;
+    }
+
+    var tmp_page33;
+    function nullCheck33() {
+      if ((getValue('input4-1') == '-') ||
+          (getValue('input4-2') == '-') ||
+          (getValue('input4-3') == '-') ||
+          (getValue('input4-4') == '-') ||
+          (getValue('input4-5') == '-') ||
+          (comboCheck('combo4-1-1') == '-') ||
+          (comboCheck('combo4-1-2') == '-') ||
+          (comboCheck('combo4-1-3') == '-') ||
+          (getValue('input4-6') == '-') ||
+          (radioCheck('radio4-1') == 'Null') ||
+          (radioCheck('radio4-2') == 'Null') ||
+          (radioCheck('radio4-3') == 'Null') ||
+          (radioCheck('radio4-4') == 'Null') ||
+          (radioCheck('radio4-5') == 'Null') ||
+          (radioCheck('radio4-6') == 'Null') ||
+          (getValue('input4-13') == '-') ||
+          (getValue('input4-14') == '-')) {
+        tmp_page33 = 'X'
+      } else {
+        tmp_page33 = 'O'
+      }
+      return tmp_page33;
+    }
+
+    var tmp_page44;
+    function nullCheck44() {
+      if ((getValue('input5-1') == '-') ||
+          (getValue('input5-2') == '-') ||
+          (radioCheck('radio5-1') == 'Null') ||
+          (getValue('input5-3') == '-') ||
+          (getValue('input5-4') == '-') ||
+          (comboCheck('combo5-1-1') == '-') ||
+          (comboCheck('combo5-1-2') == '-') ||
+          (comboCheck('combo5-1-3') == '-') ||
+          (getValue('input5-5') == '-') ||
+          (radioCheck('radio5-1') == 'Null') ||
+          (radioCheck('radio5-2') == 'Null') ||
+          (radioCheck('radio5-3') == 'Null') ||
+          (radioCheck('radio5-4') == 'Null') ||
+          (radioCheck('radio5-5') == 'Null') ||
+          (radioCheck('radio5-6') == 'Null') ||
+          (radioCheck('radio5-7') == 'Null') ||
+          (radioCheck('radio5-8') == 'Null') ||
+          (radioCheck('radio5-9') == 'Null') ||
+          (radioCheck('radio5-10') == 'Null') ||
+          (radioCheck('radio5-11') == 'Null') ||
+          (radioCheck('radio5-12') == 'Null') ||
+          (radioCheck('radio5-13') == 'Null') ||
+          (radioCheck('radio5-14') == 'Null')) {
+        tmp_page44 = 'X'
+      } else {
+        tmp_page44 = 'O'
+      }
+      return tmp_page44;
+    }
+
+    var tmp_page55;
+    function nullCheck55() {
+      if ((radioCheck('radio8-1') == 'Null') ||
+          (radioCheck('radio8-2') == 'Null') ||
+          (radioCheck('radio8-3') == 'Null') ||
+          (radioCheck('radio8-4') == 'Null') ||
+          (radioCheck('radio8-5') == 'Null') ||
+          (radioCheck('radio8-6') == 'Null') ||
+          (radioCheck('radio8-7') == 'Null') ||
+          (radioCheck('radio8-8') == 'Null') ||
+          (radioCheck('radio8-9') == 'Null') ||
+          (radioCheck('radio8-10') == 'Null') ||
+          (radioCheck('radio8-11') == 'Null')) {
+        tmp_page55 = 'X'
+      } else {
+        tmp_page55 = 'O'
+      }
+      return tmp_page55;
+    }
+
+    //명단 추가 버튼
+    $('#add_bt').on("click", function() {
+      document.getElementById("form1").style.display = "none"
+      document.getElementById("form2").style.display = "block"
+    })
+
+    //삭제 버튼
+    $('#delete_bt').on("click", function() {
+      $.ajax({
+        url: '/delete2',
+        type: 'post',
+        data: {
+          identification: getValue('delete_id')
+        },
+        dataType: 'json',
+
+        success: function(res) {
+          if(res) {
+            alert("DB가 삭제되었습니다.");
+          } else {
+            alert("삭제 실패하였습니다. \n공여자 ID를 다시 한번 확인하세요. \n")
+          }
+        },
+        error: function(e) {
+          alert("삭제 실패하였습니다. \n", e)
+        }
+      })
+    })
+
+    //form2
+    $('#form2_before_bt').on("click", function() {
+      document.getElementById("form2").style.display = "none"
+      document.getElementById("form1").style.display = "block"
+    })
+
+    $('#form2_next_bt').on("click", function() {
+      document.getElementById("form2").style.display = "none"
+      document.getElementById("form3").style.display = "block"
+
+      $('#input3-1').val($('#input2-1').val()) //이름
+      $('#input3-2').val($('#input2-2').val()) //주민등록번호 앞
+      $('#input3-3').val($('#input2-3').val()) //주민등록번호 뒤
+      $('#input3-4').val($('#input2-8').val()) //담당의
+    })
+
+    //form3
+    $('#form3_before_bt').on("click", function() {
+      document.getElementById("form3").style.display = "none"
+      document.getElementById("form2").style.display = "block"
+    })
+
+    $('#form3_next_bt').on("click", function() {
+      document.getElementById("form3").style.display = "none"
+      document.getElementById("form4").style.display = "block"
+
+      $('#input4-2').val($('#input2-2').val()) //주민등록번호 앞
+      $('#input4-3').val($('#input2-3').val()) //주민등록번호 뒤
+      $('#input4-4').val($('#input2-6').val()) //담당의 소속병원
+      $('#input4-5').val($('#input2-8').val()) //담당의
+      $('#input4-13').val($('#input2-9').val()) //피디젠 담당자
+    })
+
+    //form4
+    $('#form4_before_bt').on("click", function() {
+      document.getElementById("form4").style.display = "none"
+      document.getElementById("form3").style.display = "block"
+    })
+
+    $('#form4_next_bt').on("click", function() {
+      document.getElementById("form4").style.display = "none"
+      document.getElementById("form5").style.display = "block"
+
+      $('#input5-1').val($('#input4-1').val()) //공여자 식별번호
+      var tmp_radio = document.getElementsByName("radio2-1") // 성별
+      var res_radio = document.getElementsByName("radio5-1")
+      for (var i = 0; i < tmp_radio.length; i++) {
+          if (tmp_radio[i].checked == true) {
+            res_radio[i].checked = true;
+          }
+      }
+      var tmp_combo1 = document.getElementById("combo4-1-1"); //조직 채취일 (=지방흡입 수술일)
+      var tmp_combo2 = document.getElementById("combo4-1-2");
+      var tmp_combo3 = document.getElementById("combo4-1-3");
+      var res_combo1 = document.getElementById("combo5-1-1");
+      var res_combo2 = document.getElementById("combo5-1-2");
+      var res_combo3 = document.getElementById("combo5-1-3");
+      res_combo1.selectedIndex = tmp_combo1.selectedIndex
+      res_combo2.selectedIndex = tmp_combo2.selectedIndex
+      res_combo3.selectedIndex = tmp_combo3.selectedIndex
+      $('#input5-5').val($('#input2-6').val()) //조직 채취기관 (=담당의 소속병원)
+    })
+
+    //form5
+    $('#form5_before_bt').on("click", function() {
+      document.getElementById("form5").style.display = "none"
+      document.getElementById("form4").style.display = "block"
+    })
+
+    $('#form5_next_bt').on("click", function() {
+      document.getElementById("form5").style.display = "none"
+      document.getElementById("form6").style.display = "block"
+    })
+
+    //form6
+    $('#form6_before_bt').on("click", function() {
+      document.getElementById("form6").style.display = "none"
+      document.getElementById("form5").style.display = "block"
+    })
+
+    //작성 완료 버튼
+    $('#upload_bt').on("click", function() {
+      $.ajax({
+        url: '/upload2',
+        type: 'post',
+        data: {
+          created: createDate(),
+          identification: getValue('input4-1'),
+          name: getValue('input2-1'),
+          race: getValue('input5-2'),
+          sex: radioCheck('radio2-1'),
+          age: getValue('input5-3'),
+          resident_no: getValue('input2-2') + "-" + getValue('input2-3'),
+          address: getValue('input2-4'),
+          phone: getValue('input2-5'),
+          suitable: radioCheck('radio3-1'),
+          cell_origin: getValue('input5-4'),
+          doctor_hospital: getValue('input2-6'),
+          doctor_department: getValue('input2-7'),
+          doctor_name: getValue('input2-8'),
+          surgery_date: comboCheck('combo4-1-1') + comboCheck('combo4-1-2') + comboCheck('combo4-1-3'),
+          amount: getValue('input4-6'),
+          charge_pdxen: getValue('input2-9'),
+          charge_hospital: getValue('input4-14'),
+          consent_date: comboCheck('combo2-1-1') + comboCheck('combo2-1-2') + comboCheck('combo2-1-3'),
+          evaluate_date: comboCheck('combo3-1-1') + comboCheck('combo3-1-2') + comboCheck('combo3-1-3'),
+
+          check_1: radioCheck('radio4-1'),
+          check_1_note: getValue('input4-7'),
+          check_2: radioCheck('radio4-2'),
+          check_2_note: getValue('input4-8'),
+          check_3: radioCheck('radio4-3'),
+          check_3_note: getValue('input4-9'),
+          check_4: radioCheck('radio4-4'),
+          check_4_note: getValue('input4-10'),
+          check_5: radioCheck('radio4-5'),
+          check_5_note: getValue('input4-11'),
+          check_6: radioCheck('radio4-6'),
+          check_6_note: getValue('input4-12'),
+
+          blood_test_1: radioCheck('radio5-2'),
+          blood_test_2: radioCheck('radio5-3'),
+          blood_test_3: radioCheck('radio5-4'),
+          blood_test_4: radioCheck('radio5-5'),
+          blood_test_5: radioCheck('radio5-6'),
+          blood_test_6: radioCheck('radio5-7'),
+          blood_test_7: radioCheck('radio5-8'),
+          blood_test_8: radioCheck('radio5-9'),
+          blood_test_9: radioCheck('radio5-10'),
+          blood_test_10: radioCheck('radio5-11'),
+          blood_test_11: radioCheck('radio5-12'),
+          blood_test_12: radioCheck('radio5-13'),
+          blood_test_13: radioCheck('radio5-14'),
+          blood_test_14: radioCheck('radio5-15'),
+
+          safety_test_1: radioCheck('radio6-1'),
+          safety_test_2: radioCheck('radio6-2'),
+          safety_test_3: radioCheck('radio6-3'),
+          safety_test_4: radioCheck('radio6-4'),
+          safety_test_5: radioCheck('radio6-5'),
+          safety_test_6: radioCheck('radio6-6'),
+          safety_test_7: radioCheck('radio6-7'),
+          safety_test_8: radioCheck('radio6-8'),
+          safety_test_9: radioCheck('radio6-9'),
+          safety_test_10: radioCheck('radio6-10'),
+          safety_test_11: radioCheck('radio6-11'),
+
+          page1: nullCheck1(),
+          page2: nullCheck2(),
+          page3: nullCheck3(),
+          page4: nullCheck4(),
+          page5: nullCheck5()
+        },
+        dataType: 'json',
+
+        success: function(res) { //성공 시 코드
+          if(res) {
+            alert("서버에 성공적으로 업로드 되었습니다.");
+          } else {
+            alert("업로드 실패하였습니다. \n공여자 ID가 중복되지 않았는지 다시 한번 확인하세요. \n")
+          }
+        },
+        error: function(e) { //실패 시 코드
+          alert("업로드 실패하였습니다.\n", e)
+        }
+      })
+    })
+
+    //form7
+    $('#form7_before_bt').on("click", function() {
+      document.getElementById("form7").style.display = "none"
+      document.getElementById("form5").style.display = "block"
+    })
+
+    //form8
+    $('#form8_before_bt').on("click", function() {
+      document.getElementById("form8").style.display = "none"
+      document.getElementById("form5").style.display = "block"
+    })
+
+    //수정 완료 버튼
+    $('#modify_bt').on("click", function() {
+      $.ajax({
+        url: '/modify2',
+        type: 'post',
+        data: {
+          identification: getValue('input4-1'),
+          name: getValue('input2-1'),
+          race: getValue('input5-2'),
+          sex: radioCheck('radio2-1'),
+          age: getValue('input5-3'),
+          resident_no: getValue('input2-2') + "-" + getValue('input2-3'),
+          address: getValue('input2-4'),
+          phone: getValue('input2-5'),
+          suitable: radioCheck('radio3-1'),
+          cell_origin: getValue('input5-4'),
+          doctor_hospital: getValue('input2-6'),
+          doctor_department: getValue('input2-7'),
+          doctor_name: getValue('input2-8'),
+          surgery_date: comboCheck('combo4-1-1') + comboCheck('combo4-1-2') + comboCheck('combo4-1-3'),
+          amount: getValue('input4-6'),
+          charge_pdxen: getValue('input2-9'),
+          charge_hospital: getValue('input4-14'),
+          consent_date: comboCheck('combo2-1-1') + comboCheck('combo2-1-2') + comboCheck('combo2-1-3'),
+          evaluate_date: comboCheck('combo3-1-1') + comboCheck('combo3-1-2') + comboCheck('combo3-1-3'),
+
+          check_1: radioCheck('radio4-1'),
+          check_1_note: getValue('input4-7'),
+          check_2: radioCheck('radio4-2'),
+          check_2_note: getValue('input4-8'),
+          check_3: radioCheck('radio4-3'),
+          check_3_note: getValue('input4-9'),
+          check_4: radioCheck('radio4-4'),
+          check_4_note: getValue('input4-10'),
+          check_5: radioCheck('radio4-5'),
+          check_5_note: getValue('input4-11'),
+          check_6: radioCheck('radio4-6'),
+          check_6_note: getValue('input4-12'),
+
+          blood_test_1: radioCheck('radio5-2'),
+          blood_test_2: radioCheck('radio5-3'),
+          blood_test_3: radioCheck('radio5-4'),
+          blood_test_4: radioCheck('radio5-5'),
+          blood_test_5: radioCheck('radio5-6'),
+          blood_test_6: radioCheck('radio5-7'),
+          blood_test_7: radioCheck('radio5-8'),
+          blood_test_8: radioCheck('radio5-9'),
+          blood_test_9: radioCheck('radio5-10'),
+          blood_test_10: radioCheck('radio5-11'),
+          blood_test_11: radioCheck('radio5-12'),
+          blood_test_12: radioCheck('radio5-13'),
+          blood_test_13: radioCheck('radio5-14'),
+          blood_test_14: radioCheck('radio5-15'),
+
+          safety_test_1: radioCheck('radio8-1'),
+          safety_test_2: radioCheck('radio8-2'),
+          safety_test_3: radioCheck('radio8-3'),
+          safety_test_4: radioCheck('radio8-4'),
+          safety_test_5: radioCheck('radio8-5'),
+          safety_test_6: radioCheck('radio8-6'),
+          safety_test_7: radioCheck('radio8-7'),
+          safety_test_8: radioCheck('radio8-8'),
+          safety_test_9: radioCheck('radio8-9'),
+          safety_test_10: radioCheck('radio8-10'),
+          safety_test_11: radioCheck('radio8-11'),
+
+          page1: nullCheck11(),
+          page2: nullCheck22(),
+          page3: nullCheck33(),
+          page4: nullCheck44(),
+          page5: nullCheck55()
+        },
+        dataType: 'json',
+
+        success: function(res) {
+          if(res) {
+            alert("DB가 성공적으로 수정되었습니다.");
+          } else {
+            alert("수정 실패하였습니다. \n공여자 ID가 중복되지 않았는지 다시 한번 확인하세요. \n")
+          }
+        },
+        error: function(e) {
+          alert("수정 실패하였습니다. \n", e)
+        }
+      })
+    })
+
+    </script>
+
+</body>
+</html>

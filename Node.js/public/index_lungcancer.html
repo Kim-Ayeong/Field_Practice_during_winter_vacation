@@ -1,0 +1,2077 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>폐암 검사일지 관리 시스템</title>
+    <style>
+        body {
+            font-family: "맑은 고딕";
+            font-size: 80%;
+        }
+        button {
+            background-color: white;
+            color: white;
+        }
+        table {
+            width: 1000px;
+            border: 0;
+        }
+        th {
+            width: 250px;
+            text-align: left;
+        }
+        td {
+            width: 250px;
+            padding: 2px;
+            align-content: left;
+        }
+        .color_title {
+            background-color: lightblue;
+        }
+        .color {
+            background-color: lightgray;
+        }
+        .color2 {
+            width: 125px;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body align="center">
+    <div class='color_title'>
+      <h1>폐암 검사일지 관리 시스템</h1>
+    </div><hr>
+    <div style="float: left;">
+      <input type="button" value="홈으로" onclick="location.href='index_start.html'">
+    </div>
+    <br><br><input type="button" id="menu_bt1" value="데이터 생성"> &nbsp;&nbsp;&nbsp;
+    <input type="button" id="menu_bt2" value="데이터 확인/검색"><br><br>
+
+    <!--데이터 생성 페이지-->
+    <form id="form1">
+        <div id="page1" style="display:block" align="center">
+            <table>
+                <tr>
+                    <th class="color">Subject No.</th>
+                    <td><INPUT type="text" id="input1-1" value=""></td>
+                    <th class="color">등록번호</th>
+                    <td><INPUT type="text" id="input1-2" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color">이름</th>
+                    <td><INPUT type="text" id="input1-3" value=""></td>
+                    <th class="color">이니셜</th>
+                    <td><INPUT type="text" id="input1-4" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color">성별</th>
+                    <td><INPUT type="radio" name="radio1-1" value="M">남 <INPUT type="radio" name="radio1-1" value="F">여 </td>
+                    <th class="color">나이</th>
+                    <td><INPUT type="text" id="input1-5" value=""></td>
+                </tr>
+            </table>
+            <hr />
+            <table>
+                <tr>
+                    <th class="color">진단일</th>
+                    <td colspan="3">
+                        <SELECT id="combo2-1-1">
+                            <OPTION>-
+                            <OPTION>1990
+                            <OPTION>1991
+                            <OPTION>1992
+                            <OPTION>1993
+                            <OPTION>1994
+                            <OPTION>1995
+                            <OPTION>1996
+                            <OPTION>1997
+                            <OPTION>1998
+                            <OPTION>1999
+                            <OPTION>2000
+                            <OPTION>2001
+                            <OPTION>2002
+                            <OPTION>2003
+                            <OPTION>2004
+                            <OPTION>2005
+                            <OPTION>2006
+                            <OPTION>2007
+                            <OPTION>2008
+                            <OPTION>2009
+                            <OPTION>2010
+                            <OPTION>2011
+                            <OPTION>2012
+                            <OPTION>2013
+                            <OPTION>2014
+                            <OPTION>2015
+                            <OPTION>2016
+                            <OPTION>2017
+                            <OPTION>2018
+                            <OPTION>2019
+                        </SELECT>
+                        <SELECT id="combo2-1-2">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                        </SELECT>
+                        <SELECT id="combo2-1-3">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                            <OPTION>13
+                            <OPTION>14
+                            <OPTION>15
+                            <OPTION>16
+                            <OPTION>17
+                            <OPTION>18
+                            <OPTION>19
+                            <OPTION>20
+                            <OPTION>21
+                            <OPTION>22
+                            <OPTION>23
+                            <OPTION>24
+                            <OPTION>25
+                            <OPTION>26
+                            <OPTION>27
+                            <OPTION>28
+                            <OPTION>29
+                            <OPTION>30
+                            <OPTION>31
+                        </SELECT>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="color">Diagnosis</th>
+                    <td><INPUT type="text" id="input2-1" value=""></td>
+                    <th class="color">Diagnosis pathology</th>
+                    <td><INPUT type="text" id="input2-2" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color">수술일</th>
+                    <td colspan="3">
+                        <SELECT id="combo2-2-1">
+                            <OPTION>-
+                            <OPTION>1990
+                            <OPTION>1991
+                            <OPTION>1992
+                            <OPTION>1993
+                            <OPTION>1994
+                            <OPTION>1995
+                            <OPTION>1996
+                            <OPTION>1997
+                            <OPTION>1998
+                            <OPTION>1999
+                            <OPTION>2000
+                            <OPTION>2001
+                            <OPTION>2002
+                            <OPTION>2003
+                            <OPTION>2004
+                            <OPTION>2005
+                            <OPTION>2006
+                            <OPTION>2007
+                            <OPTION>2008
+                            <OPTION>2009
+                            <OPTION>2010
+                            <OPTION>2011
+                            <OPTION>2012
+                            <OPTION>2013
+                            <OPTION>2014
+                            <OPTION>2015
+                            <OPTION>2016
+                            <OPTION>2017
+                            <OPTION>2018
+                            <OPTION>2019
+                        </SELECT>
+                        <SELECT id="combo2-2-2">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                        </SELECT>
+                        <SELECT id="combo2-2-3">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                            <OPTION>13
+                            <OPTION>14
+                            <OPTION>15
+                            <OPTION>16
+                            <OPTION>17
+                            <OPTION>18
+                            <OPTION>19
+                            <OPTION>20
+                            <OPTION>21
+                            <OPTION>22
+                            <OPTION>23
+                            <OPTION>24
+                            <OPTION>25
+                            <OPTION>26
+                            <OPTION>27
+                            <OPTION>28
+                            <OPTION>29
+                            <OPTION>30
+                            <OPTION>31
+                        </SELECT>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="color">Recurrence</th>
+                    <td><INPUT type="radio" name="radio2-1" value="Y">유 <INPUT type="radio" name="radio2-1" value="N">무</td>
+                    <th class="color">Recurrence date</th>
+                    <td>
+                        <SELECT id="combo2-3-1">
+                            <OPTION>-
+                            <OPTION>1990
+                            <OPTION>1991
+                            <OPTION>1992
+                            <OPTION>1993
+                            <OPTION>1994
+                            <OPTION>1995
+                            <OPTION>1996
+                            <OPTION>1997
+                            <OPTION>1998
+                            <OPTION>1999
+                            <OPTION>2000
+                            <OPTION>2001
+                            <OPTION>2002
+                            <OPTION>2003
+                            <OPTION>2004
+                            <OPTION>2005
+                            <OPTION>2006
+                            <OPTION>2007
+                            <OPTION>2008
+                            <OPTION>2009
+                            <OPTION>2010
+                            <OPTION>2011
+                            <OPTION>2012
+                            <OPTION>2013
+                            <OPTION>2014
+                            <OPTION>2015
+                            <OPTION>2016
+                            <OPTION>2017
+                            <OPTION>2018
+                            <OPTION>2019
+                        </SELECT>
+                        <SELECT id="combo2-3-2">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                        </SELECT>
+                        <SELECT id="combo2-3-3">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                            <OPTION>13
+                            <OPTION>14
+                            <OPTION>15
+                            <OPTION>16
+                            <OPTION>17
+                            <OPTION>18
+                            <OPTION>19
+                            <OPTION>20
+                            <OPTION>21
+                            <OPTION>22
+                            <OPTION>23
+                            <OPTION>24
+                            <OPTION>25
+                            <OPTION>26
+                            <OPTION>27
+                            <OPTION>28
+                            <OPTION>29
+                            <OPTION>30
+                            <OPTION>31
+                        </SELECT>
+                    </td>
+                </tr>
+            </table>
+            <hr />
+            <table>
+                <tr>
+                    <th class="color">마지막 외래일</th>
+                    <td>
+                        <SELECT id="combo3-1-1">
+                            <OPTION>-
+                            <OPTION>1990
+                            <OPTION>1991
+                            <OPTION>1992
+                            <OPTION>1993
+                            <OPTION>1994
+                            <OPTION>1995
+                            <OPTION>1996
+                            <OPTION>1997
+                            <OPTION>1998
+                            <OPTION>1999
+                            <OPTION>2000
+                            <OPTION>2001
+                            <OPTION>2002
+                            <OPTION>2003
+                            <OPTION>2004
+                            <OPTION>2005
+                            <OPTION>2006
+                            <OPTION>2007
+                            <OPTION>2008
+                            <OPTION>2009
+                            <OPTION>2010
+                            <OPTION>2011
+                            <OPTION>2012
+                            <OPTION>2013
+                            <OPTION>2014
+                            <OPTION>2015
+                            <OPTION>2016
+                            <OPTION>2017
+                            <OPTION>2018
+                            <OPTION>2019
+                        </SELECT>
+                        <SELECT id="combo3-1-2">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                        </SELECT>
+                        <SELECT id="combo3-1-3">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                            <OPTION>13
+                            <OPTION>14
+                            <OPTION>15
+                            <OPTION>16
+                            <OPTION>17
+                            <OPTION>18
+                            <OPTION>19
+                            <OPTION>20
+                            <OPTION>21
+                            <OPTION>22
+                            <OPTION>23
+                            <OPTION>24
+                            <OPTION>25
+                            <OPTION>26
+                            <OPTION>27
+                            <OPTION>28
+                            <OPTION>29
+                            <OPTION>30
+                            <OPTION>31
+                        </SELECT>
+                    </td>
+                    <th class="color">사망일</th>
+                    <td>
+                        <SELECT id="combo3-2-1">
+                            <OPTION>-
+                            <OPTION>1990
+                            <OPTION>1991
+                            <OPTION>1992
+                            <OPTION>1993
+                            <OPTION>1994
+                            <OPTION>1995
+                            <OPTION>1996
+                            <OPTION>1997
+                            <OPTION>1998
+                            <OPTION>1999
+                            <OPTION>2000
+                            <OPTION>2001
+                            <OPTION>2002
+                            <OPTION>2003
+                            <OPTION>2004
+                            <OPTION>2005
+                            <OPTION>2006
+                            <OPTION>2007
+                            <OPTION>2008
+                            <OPTION>2009
+                            <OPTION>2010
+                            <OPTION>2011
+                            <OPTION>2012
+                            <OPTION>2013
+                            <OPTION>2014
+                            <OPTION>2015
+                            <OPTION>2016
+                            <OPTION>2017
+                            <OPTION>2018
+                            <OPTION>2019
+                        </SELECT>
+                        <SELECT id="combo3-2-2">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                        </SELECT>
+                        <SELECT id="combo3-2-3">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                            <OPTION>13
+                            <OPTION>14
+                            <OPTION>15
+                            <OPTION>16
+                            <OPTION>17
+                            <OPTION>18
+                            <OPTION>19
+                            <OPTION>20
+                            <OPTION>21
+                            <OPTION>22
+                            <OPTION>23
+                            <OPTION>24
+                            <OPTION>25
+                            <OPTION>26
+                            <OPTION>27
+                            <OPTION>28
+                            <OPTION>29
+                            <OPTION>30
+                            <OPTION>31
+                        </SELECT>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="color">EGFR mutation</th>
+                    <td><INPUT type="radio" name="radio3-1" value="Y">유 <INPUT type="radio" name="radio3-1" value="N">무 </td>
+                    <th class="color">ROS1 mutation</th>
+                    <td><INPUT type="radio" name="radio3-2" value="Y">유 <INPUT type="radio" name="radio3-2" value="N">무 </td>
+                </tr>
+                <tr>
+                    <th class="color">ALK mutation</th>
+                    <td><INPUT type="radio" name="radio3-3" value="Y">유 <INPUT type="radio" name="radio3-3" value="N">무 </td>
+                    <th class="color">K-RAS mutation</th>
+                    <td><INPUT type="radio" name="radio3-4" value="Y">유 <INPUT type="radio" name="radio3-4" value="N">무 </td>
+                </tr>
+                <tr>
+                    <th class="color">Other</th>
+                    <td><INPUT type="text" id="input3-1" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color">Tumor stage(7th)</th>
+                    <td><INPUT type="text" id="input3-2" value=""></td>
+                    <th class="color">Tumor stage(8th)</th>
+                    <td><INPUT type="text" id="input3-3" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color">Pathology-location</th>
+                    <td><INPUT type="text" id="input3-4" value=""></td>
+                    <th class="color">Pathology-size(mm)</th>
+                    <td><INPUT type="text" id="input3-5" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color">Pathology-visceral pleural</th>
+                    <td><INPUT type="radio" name="radio3-5" value="+">+ <INPUT type="radio" name="radio3-5" value="-">- </td>
+                    <th class="color">Pathology-resection margion(full term)</th>
+                    <td><INPUT type="text" id="input3-6" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color">Pathology-lymph node</th>
+                    <td><INPUT type="text" id="input3-7" value=""></td>
+                    <th class="color">Pathology-lymphovascular invasion</th>
+                    <td><INPUT type="radio" name="radio3-6" value="+">+ <INPUT type="radio" name="radio3-6" value="-">- </td>
+                </tr>
+                <tr>
+                    <th class="color">Pathology-differentiation</th>
+                    <td colspan="3"><INPUT type="text" id="input3-8" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color">Tobacco smoking history indicator</th>
+                    <td><INPUT type="radio" name="radio3-7" value="Y">유 <INPUT type="radio" name="radio3-7" value="N">무 </td>
+                </tr>
+                <tr>
+                    <th class="color">Year of tobacco smoking onset</th>
+                    <td>
+                        <SELECT id="combo3-3-1">
+                            <OPTION>-
+                            <OPTION>1990
+                            <OPTION>1991
+                            <OPTION>1992
+                            <OPTION>1993
+                            <OPTION>1994
+                            <OPTION>1995
+                            <OPTION>1996
+                            <OPTION>1997
+                            <OPTION>1998
+                            <OPTION>1999
+                            <OPTION>2000
+                            <OPTION>2001
+                            <OPTION>2002
+                            <OPTION>2003
+                            <OPTION>2004
+                            <OPTION>2005
+                            <OPTION>2006
+                            <OPTION>2007
+                            <OPTION>2008
+                            <OPTION>2009
+                            <OPTION>2010
+                            <OPTION>2011
+                            <OPTION>2012
+                            <OPTION>2013
+                            <OPTION>2014
+                            <OPTION>2015
+                            <OPTION>2016
+                            <OPTION>2017
+                            <OPTION>2018
+                            <OPTION>2019
+                        </SELECT>
+                        <SELECT id="combo3-3-2">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                        </SELECT>
+                        <SELECT id="combo3-3-3">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                            <OPTION>13
+                            <OPTION>14
+                            <OPTION>15
+                            <OPTION>16
+                            <OPTION>17
+                            <OPTION>18
+                            <OPTION>19
+                            <OPTION>20
+                            <OPTION>21
+                            <OPTION>22
+                            <OPTION>23
+                            <OPTION>24
+                            <OPTION>25
+                            <OPTION>26
+                            <OPTION>27
+                            <OPTION>28
+                            <OPTION>29
+                            <OPTION>30
+                            <OPTION>31
+                        </SELECT>
+                    </td>
+                    <th class="color">Year of tobacco smoking cessation</th>
+                    <td><INPUT type="text" id="input3-9" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color">Regimen</th>
+                    <td><INPUT type="text" id="input3-10" value=""></td>
+                </tr>
+            </table>
+            <hr />
+            <table>
+                <tr>
+                    <th class="color">Start date</th>
+                    <td>
+                        <SELECT id="combo4-1-1">
+                            <OPTION>-
+                            <OPTION>1990
+                            <OPTION>1991
+                            <OPTION>1992
+                            <OPTION>1993
+                            <OPTION>1994
+                            <OPTION>1995
+                            <OPTION>1996
+                            <OPTION>1997
+                            <OPTION>1998
+                            <OPTION>1999
+                            <OPTION>2000
+                            <OPTION>2001
+                            <OPTION>2002
+                            <OPTION>2003
+                            <OPTION>2004
+                            <OPTION>2005
+                            <OPTION>2006
+                            <OPTION>2007
+                            <OPTION>2008
+                            <OPTION>2009
+                            <OPTION>2010
+                            <OPTION>2011
+                            <OPTION>2012
+                            <OPTION>2013
+                            <OPTION>2014
+                            <OPTION>2015
+                            <OPTION>2016
+                            <OPTION>2017
+                            <OPTION>2018
+                            <OPTION>2019
+                        </SELECT>
+                        <SELECT id="combo4-1-2">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                        </SELECT>
+                        <SELECT id="combo4-1-3">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                            <OPTION>13
+                            <OPTION>14
+                            <OPTION>15
+                            <OPTION>16
+                            <OPTION>17
+                            <OPTION>18
+                            <OPTION>19
+                            <OPTION>20
+                            <OPTION>21
+                            <OPTION>22
+                            <OPTION>23
+                            <OPTION>24
+                            <OPTION>25
+                            <OPTION>26
+                            <OPTION>27
+                            <OPTION>28
+                            <OPTION>29
+                            <OPTION>30
+                            <OPTION>31
+                        </SELECT>
+                    </td>
+                    <th class="color">Last date</th>
+                    <td>
+                        <SELECT id="combo4-2-1">
+                            <OPTION>-
+                            <OPTION>1990
+                            <OPTION>1991
+                            <OPTION>1992
+                            <OPTION>1993
+                            <OPTION>1994
+                            <OPTION>1995
+                            <OPTION>1996
+                            <OPTION>1997
+                            <OPTION>1998
+                            <OPTION>1999
+                            <OPTION>2000
+                            <OPTION>2001
+                            <OPTION>2002
+                            <OPTION>2003
+                            <OPTION>2004
+                            <OPTION>2005
+                            <OPTION>2006
+                            <OPTION>2007
+                            <OPTION>2008
+                            <OPTION>2009
+                            <OPTION>2010
+                            <OPTION>2011
+                            <OPTION>2012
+                            <OPTION>2013
+                            <OPTION>2014
+                            <OPTION>2015
+                            <OPTION>2016
+                            <OPTION>2017
+                            <OPTION>2018
+                            <OPTION>2019
+                        </SELECT>
+                        <SELECT id="combo4-2-2">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                        </SELECT>
+                        <SELECT id="combo4-2-3">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                            <OPTION>13
+                            <OPTION>14
+                            <OPTION>15
+                            <OPTION>16
+                            <OPTION>17
+                            <OPTION>18
+                            <OPTION>19
+                            <OPTION>20
+                            <OPTION>21
+                            <OPTION>22
+                            <OPTION>23
+                            <OPTION>24
+                            <OPTION>25
+                            <OPTION>26
+                            <OPTION>27
+                            <OPTION>28
+                            <OPTION>29
+                            <OPTION>30
+                            <OPTION>31
+                        </SELECT>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="color">Cycle No.</th>
+                    <td><INPUT type="text" id="input4-1" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color">Recurrence/Progressive disease</th>
+                    <td><INPUT type="radio" name="radio4-1" value="Y">유 <INPUT type="radio" name="radio4-1" value="N">무 </td>
+                    <th class="color">Recurrence date</th>
+                    <td>
+                        <SELECT id="combo4-3-1">
+                            <OPTION>-
+                            <OPTION>1990
+                            <OPTION>1991
+                            <OPTION>1992
+                            <OPTION>1993
+                            <OPTION>1994
+                            <OPTION>1995
+                            <OPTION>1996
+                            <OPTION>1997
+                            <OPTION>1998
+                            <OPTION>1999
+                            <OPTION>2000
+                            <OPTION>2001
+                            <OPTION>2002
+                            <OPTION>2003
+                            <OPTION>2004
+                            <OPTION>2005
+                            <OPTION>2006
+                            <OPTION>2007
+                            <OPTION>2008
+                            <OPTION>2009
+                            <OPTION>2010
+                            <OPTION>2011
+                            <OPTION>2012
+                            <OPTION>2013
+                            <OPTION>2014
+                            <OPTION>2015
+                            <OPTION>2016
+                            <OPTION>2017
+                            <OPTION>2018
+                            <OPTION>2019
+                        </SELECT>
+                        <SELECT id="combo4-3-2">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                        </SELECT>
+                        <SELECT id="combo4-3-3">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                            <OPTION>13
+                            <OPTION>14
+                            <OPTION>15
+                            <OPTION>16
+                            <OPTION>17
+                            <OPTION>18
+                            <OPTION>19
+                            <OPTION>20
+                            <OPTION>21
+                            <OPTION>22
+                            <OPTION>23
+                            <OPTION>24
+                            <OPTION>25
+                            <OPTION>26
+                            <OPTION>27
+                            <OPTION>28
+                            <OPTION>29
+                            <OPTION>30
+                            <OPTION>31
+                        </SELECT>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="color">Regimen</th>
+                    <td><INPUT type="text" id="input4-2" value=""></td>
+                    <th class="color">RT</th>
+                    <td><INPUT type="radio" name="radio4-2" value="Y">유 <INPUT type="radio" name="radio4-2" value="N">무 </td>
+                </tr>
+            </table>
+            <hr />
+            <table>
+                <tr>
+                    <th class="color2">검사일시</th>
+                    <td colspan="7">
+                        <SELECT id="combo5-1-1">
+                            <OPTION>-
+                            <OPTION>1990
+                            <OPTION>1991
+                            <OPTION>1992
+                            <OPTION>1993
+                            <OPTION>1994
+                            <OPTION>1995
+                            <OPTION>1996
+                            <OPTION>1997
+                            <OPTION>1998
+                            <OPTION>1999
+                            <OPTION>2000
+                            <OPTION>2001
+                            <OPTION>2002
+                            <OPTION>2003
+                            <OPTION>2004
+                            <OPTION>2005
+                            <OPTION>2006
+                            <OPTION>2007
+                            <OPTION>2008
+                            <OPTION>2009
+                            <OPTION>2010
+                            <OPTION>2011
+                            <OPTION>2012
+                            <OPTION>2013
+                            <OPTION>2014
+                            <OPTION>2015
+                            <OPTION>2016
+                            <OPTION>2017
+                            <OPTION>2018
+                            <OPTION>2019
+                        </SELECT>
+                        <SELECT id="combo5-1-2">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                        </SELECT>
+                        <SELECT id="combo5-1-3">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                            <OPTION>13
+                            <OPTION>14
+                            <OPTION>15
+                            <OPTION>16
+                            <OPTION>17
+                            <OPTION>18
+                            <OPTION>19
+                            <OPTION>20
+                            <OPTION>21
+                            <OPTION>22
+                            <OPTION>23
+                            <OPTION>24
+                            <OPTION>25
+                            <OPTION>26
+                            <OPTION>27
+                            <OPTION>28
+                            <OPTION>29
+                            <OPTION>30
+                            <OPTION>31
+                        </SELECT>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="color2">Cycle No.</th>
+                    <td colspan="7"><INPUT type="text" id="input5-1" style="width:125px;" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color2">WBC</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-2" style="width:125px;" value=""></td>
+                    <th class="color2">Hg</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-3" style="width:125px;" value=""></td>
+                    <th class="color2">Hct</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-4" style="width:125px;" value=""></td>
+                    <th class="color2">PLT</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-5" style="width:125px;" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color2">Seg neutrophil(#)</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-6" style="width:125px;" value=""></td>
+                    <th class="color2">Lymphocyte(#)</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-7" style="width:125px;" value=""></td>
+                    <th class="color2">ANC</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-8" style="width:125px;" value=""></td>
+                    <th class="color2">Sodium</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-9" style="width:125px;" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color2">Potassium</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-10" style="width:125px;" value=""></td>
+                    <th class="color2">Chloride</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-11" style="width:125px;" value=""></td>
+                    <th class="color2">Osmolality,serum</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-12" style="width:125px;" value=""></td>
+                    <th class="color2">Calcium</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-13" style="width:125px;" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color2">Phosphorus</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-14" style="width:125px;" value=""></td>
+                    <th class="color2">BUN</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-15" style="width:125px;" value=""></td>
+                    <th class="color2">Creatinine</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-16" style="width:125px;" value=""></td>
+                    <th class="color2">Glucose</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-17" style="width:125px;" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color2">Uric acid</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-18" style="width:125px;" value=""></td>
+                    <th class="color2">Cholesterol</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-19" style="width:125px;" value=""></td>
+                    <th class="color2">Protein.Total</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-20" style="width:125px;" value=""></td>
+                    <th class="color2">Albumin</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-21" style="width:125px;" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color2">Bilirubin,total</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-22" style="width:125px;" value=""></td>
+                    <th class="color2">Alkaline phosphatase</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-23" style="width:125px;" value=""></td>
+                    <th class="color2">AST</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-24" style="width:125px;" value=""></td>
+                    <th class="color2">ALT</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-25" style="width:125px;" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color2">eGFR(MDRD 공식)</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-26" style="width:125px;" value=""></td>
+                    <th class="color2">eGFR(CKD-EPI 공식)</th>
+                    <td style="width:125px;"><INPUT type="text" id="input5-27" style="width:125px;" value=""></td>
+                    <th class="color2">LDH</th>
+                    <td colspan="3"><INPUT type="text" id="input5-28" style="width:125px;" value=""></td>
+                </tr>
+            </table>
+            <br>
+            <input type="reset" value="reset"> &nbsp;&nbsp;&nbsp;
+            <input type="submit" id="upload_bt" value="upload">
+            <br><br><span style="color:red"> ※ 다시 한번 확인 후 업로드하십시오. ※ </span>
+            <br /><hr />
+        </div>
+    </form>
+
+    <!--데이터 확인/검색 페이지-->
+    <form id="form2">
+        <div id="page2" style="display:none" align="center">
+            <table width="1000" border="0">
+                <tr>
+                    <th class="color">이름</th>
+                    <td colspan="3"><INPUT type="text" id="input6-1" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color">성별</th>
+                    <td><INPUT type="radio" name="radio6-1" value="M"> 남 <INPUT type="radio" name="radio6-1" value="F">여 </td>
+                    <th class="color">나이</th>
+                    <td><INPUT type="text" id="input6-2" value=""></td>
+                </tr>
+                <tr>
+                    <th class="color">진단일</th>
+                    <td>
+                        <SELECT id="combo6-1-1">
+                            <OPTION>-
+                            <OPTION>1990
+                            <OPTION>1991
+                            <OPTION>1992
+                            <OPTION>1993
+                            <OPTION>1994
+                            <OPTION>1995
+                            <OPTION>1996
+                            <OPTION>1997
+                            <OPTION>1998
+                            <OPTION>1999
+                            <OPTION>2000
+                            <OPTION>2001
+                            <OPTION>2002
+                            <OPTION>2003
+                            <OPTION>2004
+                            <OPTION>2005
+                            <OPTION>2006
+                            <OPTION>2007
+                            <OPTION>2008
+                            <OPTION>2009
+                            <OPTION>2010
+                            <OPTION>2011
+                            <OPTION>2012
+                            <OPTION>2013
+                            <OPTION>2014
+                            <OPTION>2015
+                            <OPTION>2016
+                            <OPTION>2017
+                            <OPTION>2018
+                            <OPTION>2019
+                        </SELECT>
+                        <SELECT id="combo6-1-2">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                        </SELECT>
+                        <SELECT id="combo6-1-3">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                            <OPTION>13
+                            <OPTION>14
+                            <OPTION>15
+                            <OPTION>16
+                            <OPTION>17
+                            <OPTION>18
+                            <OPTION>19
+                            <OPTION>20
+                            <OPTION>21
+                            <OPTION>22
+                            <OPTION>23
+                            <OPTION>24
+                            <OPTION>25
+                            <OPTION>26
+                            <OPTION>27
+                            <OPTION>28
+                            <OPTION>29
+                            <OPTION>30
+                            <OPTION>31
+                        </SELECT>
+                    </td>
+                    <th class="color">수술일</th>
+                    <td>
+                        <SELECT id="combo6-2-1">
+                            <OPTION>-
+                            <OPTION>1990
+                            <OPTION>1991
+                            <OPTION>1992
+                            <OPTION>1993
+                            <OPTION>1994
+                            <OPTION>1995
+                            <OPTION>1996
+                            <OPTION>1997
+                            <OPTION>1998
+                            <OPTION>1999
+                            <OPTION>2000
+                            <OPTION>2001
+                            <OPTION>2002
+                            <OPTION>2003
+                            <OPTION>2004
+                            <OPTION>2005
+                            <OPTION>2006
+                            <OPTION>2007
+                            <OPTION>2008
+                            <OPTION>2009
+                            <OPTION>2010
+                            <OPTION>2011
+                            <OPTION>2012
+                            <OPTION>2013
+                            <OPTION>2014
+                            <OPTION>2015
+                            <OPTION>2016
+                            <OPTION>2017
+                            <OPTION>2018
+                            <OPTION>2019
+                        </SELECT>
+                        <SELECT id="combo6-2-2">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                        </SELECT>
+                        <SELECT id="combo6-2-3">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                            <OPTION>13
+                            <OPTION>14
+                            <OPTION>15
+                            <OPTION>16
+                            <OPTION>17
+                            <OPTION>18
+                            <OPTION>19
+                            <OPTION>20
+                            <OPTION>21
+                            <OPTION>22
+                            <OPTION>23
+                            <OPTION>24
+                            <OPTION>25
+                            <OPTION>26
+                            <OPTION>27
+                            <OPTION>28
+                            <OPTION>29
+                            <OPTION>30
+                            <OPTION>31
+                        </SELECT>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="color">마지막 외래일</th>
+                    <td colspan="3">
+                        <SELECT id="combo6-3-1">
+                            <OPTION>-
+                            <OPTION>1990
+                            <OPTION>1991
+                            <OPTION>1992
+                            <OPTION>1993
+                            <OPTION>1994
+                            <OPTION>1995
+                            <OPTION>1996
+                            <OPTION>1997
+                            <OPTION>1998
+                            <OPTION>1999
+                            <OPTION>2000
+                            <OPTION>2001
+                            <OPTION>2002
+                            <OPTION>2003
+                            <OPTION>2004
+                            <OPTION>2005
+                            <OPTION>2006
+                            <OPTION>2007
+                            <OPTION>2008
+                            <OPTION>2009
+                            <OPTION>2010
+                            <OPTION>2011
+                            <OPTION>2012
+                            <OPTION>2013
+                            <OPTION>2014
+                            <OPTION>2015
+                            <OPTION>2016
+                            <OPTION>2017
+                            <OPTION>2018
+                            <OPTION>2019
+                        </SELECT>
+                        <SELECT id="combo6-3-2">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                        </SELECT>
+                        <SELECT id="combo6-3-3">
+                            <OPTION>-
+                            <OPTION>01
+                            <OPTION>02
+                            <OPTION>03
+                            <OPTION>04
+                            <OPTION>05
+                            <OPTION>06
+                            <OPTION>07
+                            <OPTION>08
+                            <OPTION>09
+                            <OPTION>10
+                            <OPTION>11
+                            <OPTION>12
+                            <OPTION>13
+                            <OPTION>14
+                            <OPTION>15
+                            <OPTION>16
+                            <OPTION>17
+                            <OPTION>18
+                            <OPTION>19
+                            <OPTION>20
+                            <OPTION>21
+                            <OPTION>22
+                            <OPTION>23
+                            <OPTION>24
+                            <OPTION>25
+                            <OPTION>26
+                            <OPTION>27
+                            <OPTION>28
+                            <OPTION>29
+                            <OPTION>30
+                            <OPTION>31
+                        </SELECT>
+                    </td>
+                </tr>
+            </table><br>
+            <input type="reset" value="reset"> &nbsp;&nbsp;&nbsp;
+            <input type="button" id="search_bt" value="search">
+            <br><hr />
+        </div>
+    </form>
+
+    <!--검색 결과 페이지-->
+    <form id="form4">
+        <div id="page4-1" style="display:none; text-align:left; white-space:nowrap; overflow:auto;">
+            <p><b> > 검색된 DB </b></p>
+            <div id="page4-2" style="text-align:center; white-space:nowrap; overflow:auto;"></div><br />
+            <input type="button" value="검색된 DB Download" onclick="download_searchedDB()">
+            <br /><hr />
+        </div>
+    </form>
+
+    <!--서버 DB 페이지-->
+    <form id="form3">
+        <div id="page3-1" style="display:none; text-align:left; white-space:nowrap; overflow:auto;">
+            <p><b> > 현재 업로드된 DB </b></p>
+            <div id="page3-2" style="text-align:center; white-space:nowrap; overflow:auto;"></div><br />
+            <input type="button" value="전체 DB Download" onclick="download_DB()">
+            <br /><hr />
+        </div><br />
+    </form>
+
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script type="text/javascript">
+
+        //데이터 생성 날짜 함수
+        function createDate() {
+          var d = new Date()
+          var str = ""
+          str += d.getFullYear() + "/"
+          if ((d.getMonth()+1) < 10) { str += "0" }
+          str += d.getMonth()+1 + "/"
+          if (d.getDate() < 10) { str += "0" }
+          str += d.getDate() + "/"
+          if (d.getHours() < 10) { str += "0" }
+          str += d.getHours() + ":"
+          if (d.getMinutes() < 10) { str += "0" }
+          str += d.getMinutes()
+          return str
+        }
+
+        //입력값 전송 함수
+        function getValue(objId) {
+          if (document.getElementById(objId).value == "") {
+            return "-"
+          }
+          return document.getElementById(objId).value
+        }
+
+        //라디오버튼 값 전송 함수
+        function radioCheck(radioName) {
+            var tmp_radio = document.getElementsByName(radioName)
+            var tmp_check = 0
+            var result = ""
+            for (var i = 0; i < tmp_radio.length; i++) {
+                if (tmp_radio[i].checked == true) {
+                    result = tmp_radio[i].value
+                    tmp_check++
+                }
+            }
+            if (tmp_check == 0) {
+                result = "Null"
+            }
+            return result
+        }
+
+        //콤보박스 값 전송 함수
+        function comboCheck(comboId) {
+            var elt = document.getElementById(comboId);
+            if (elt.selectedIndex == -1)
+                return null;
+            return elt.options[elt.selectedIndex].text;
+        }
+
+        var server_DB;
+        var server_searchedDB;
+        //데이터 생성 메뉴 클릭 함수
+        $('#menu_bt1').on("click", function() {
+          document.getElementById("page1").style.display = "block"
+          document.getElementById("page2").style.display = "none"
+          document.getElementById("page3-1").style.display = "none"
+          document.getElementById("page4-1").style.display = "none"
+        })
+
+        //업로드 버튼 클릭 함수
+        $('#upload_bt').on("click", function() {
+          $.ajax({
+            url: '/upload1',
+            type: 'post',
+            data: {
+              Created: createDate(),
+              Subject_No: getValue('input1-1'),
+              No: getValue('input1-2'),
+              Name: getValue('input1-3'),
+              Initial: getValue('input1-4'),
+              Sex: radioCheck('radio1-1'),
+              Age: getValue('input1-5'),
+
+              Diagnosis_date: comboCheck('combo2-1-1') + comboCheck('combo2-1-2') + comboCheck('combo2-1-3'),
+              Diagnosis: getValue('input2-1'),
+              Diagnosis_pathology: getValue('input2-2'),
+              Surgery_date: comboCheck('combo2-2-1') + comboCheck('combo2-2-2') + comboCheck('combo2-2-3'),
+              Recurrence: radioCheck("radio2-1"),
+              Recurrence_date: comboCheck('combo2-3-1') + comboCheck('combo2-3-2') + comboCheck('combo2-3-3'),
+
+              Lastcare_date: comboCheck('combo3-1-1') + comboCheck('combo3-1-2') + comboCheck('combo3-1-3'),
+              Death_date: comboCheck('combo3-2-1') + comboCheck('combo3-2-2') + comboCheck('combo3-2-3'),
+              EGFR_mutation: radioCheck("radio3-1"),
+              ROS1_mutation: radioCheck("radio3-2"),
+              ALK_mutation: radioCheck("radio3-3"),
+              K_RAS_mutation: radioCheck("radio3-4"),
+              Other: getValue('input3-1'),
+              Tumor_stage_7th: getValue('input3-2'),
+              Tumor_stage_8th: getValue('input3-3'),
+              Pathology_location: getValue('input3-4'),
+              Pathology_size_mm: getValue('input3-5'),
+              Pathology_visceral_pleural: radioCheck("radio3-5"),
+              Pathology_resection_margion_fullterm: getValue('input3-6'),
+              Pathology_lymph_node: getValue('input3-7'),
+              Pathology_lymphovascular_invasion: radioCheck("radio3-6"),
+              Pathology_differentiation: getValue('input3-8'),
+              Tobacco_smoking_history_indicator: radioCheck("radio3-7"),
+              Year_of_tobacco_smoking_onset: comboCheck('combo3-3-1') + comboCheck('combo3-3-2') + comboCheck('combo3-3-3'),
+              Year_of_tobacco_smoking_cessation: getValue('input3-9'),
+              Regimen: getValue('input3-10'),
+
+              Start_date: comboCheck('combo4-1-1') + comboCheck('combo4-1-2') + comboCheck('combo4-1-3'),
+              Last_date: comboCheck('combo4-2-1') + comboCheck('combo4-2-2') + comboCheck('combo4-2-3'),
+              Cycle_No: getValue('input4-1'),
+              Recurrence_Progressive_disease: radioCheck("radio4-1"),
+              Recurrence_date_: comboCheck('combo4-3-1') + comboCheck('combo4-3-2') + comboCheck('combo4-3-3'),
+              Regimen_: getValue('input4-2'),
+              RT: radioCheck("radio4-2"),
+
+              Examine_date: comboCheck('combo5-1-1') + comboCheck('combo5-1-2') + comboCheck('combo5-1-3'),
+              Cycle_No_: getValue('input5-1'),
+              WBC: getValue('input5-2'),
+              Hg: getValue('input5-3'),
+              Hct: getValue('input5-4'),
+              PLT: getValue('input5-5'),
+              Seg_neutrophil: getValue('input5-6'),
+              Lymphocyte: getValue('input5-7'),
+              ANC: getValue('input5-8'),
+              Sodium: getValue('input5-9'),
+              Potassium: getValue('input5-10'),
+              Chloride: getValue('input5-11'),
+              Osmolality_serum: getValue('input5-12'),
+              Calcium: getValue('input5-13'),
+              Phosphorus: getValue('input5-14'),
+              BUN: getValue('input5-15'),
+              Creatinine: getValue('input5-16'),
+              Glucose: getValue('input5-17'),
+              Uric_acid: getValue('input5-18'),
+              Cholesterol: getValue('input5-19'),
+              Protein_Total: getValue('input5-20'),
+              Albumin: getValue('input5-21'),
+              Bilirubin_total: getValue('input5-22'),
+              Alkaline_phosphatase: getValue('input5-23'),
+              AST: getValue('input5-24'),
+              ALT: getValue('input5-25'),
+              eGFR_MDRD: getValue('input5-26'),
+              eGFR_CKD_EPI: getValue('input5-27'),
+              LDH: getValue('input5-28')
+            },
+            dataType: 'json',
+
+            success: function(res) { //성공 시 코드
+              alert("서버에 성공적으로 업로드 되었습니다. \n업로드 된 DB는 '데이터 확인/검색' 탭에서 확인하실 수 있습니다.");
+            },
+            error: function(e) { //실패 시 코드
+              alert("업로드 실패하였습니다. \n", e)
+            }
+          })
+        })
+
+        //json을 테이블로 출력하는 함수
+        function jsonToTable(jsonData) {
+          var myHTMLStr = '<table>'
+          myHTMLStr += '<tr><td>' + "생성일"
+                    + '</td><td>' + "Subject No"
+                    + '</td><td>' + "등록번호"
+                    + '</td><td>' + "이름"
+                    + '</td><td>' + "이니셜"
+                    + '</td><td>' + "성별(M/F)"
+                    + '</td><td>' + "나이(age)"
+
+                    + '</td><td>' + "진단일"
+                    + '</td><td>' + "Diagnosis"
+                    + '</td><td>' + "Diagnosis pathology"
+                    + '</td><td>' + "수술일"
+                    + '</td><td>' + "Recurrence 유/무"
+                    + '</td><td>' + "Recurrence date"
+
+                    + '</td><td>' + "마지막 외래일"
+                    + '</td><td>' + "사망일"
+                    + '</td><td>' + "EGFR mutation 유/무"
+                    + '</td><td>' + "ROS1 mutation 유/무"
+                    + '</td><td>' + "ALK mutation 유/무"
+                    + '</td><td>' + "K-RAS mutation 유/무"
+                    + '</td><td>' + "Other"
+                    + '</td><td>' + "Tumor stage(7th)"
+                    + '</td><td>' + "Tumor stage(8th)"
+                    + '</td><td>' + "Pathology-location"
+                    + '</td><td>' + "Pathology-size(mm)"
+                    + '</td><td>' + "Pathology-visceral pleural(+/-)"
+                    + '</td><td>' + "Pathology-resection margion(full term)"
+                    + '</td><td>' + "Pathology-lymph node"
+                    + '</td><td>' + "Pathology-lymphovascular invasion(+/-)"
+                    + '</td><td>' + "Pathology-differentiation"
+                    + '</td><td>' + "Tobacco smoking history indicator"
+                    + '</td><td>' + "Year of tobacco smoking onset"
+                    + '</td><td>' + "Year of tobacco smoking cessation"
+                    + '</td><td>' + "Regimen"
+
+                    + '</td><td>' + "Start date"
+                    + '</td><td>' + "Last date"
+                    + '</td><td>' + "Cycle No"
+                    + '</td><td>' + "Recurrence/Progressive disease"
+                    + '</td><td>' + "Recurrence date"
+                    + '</td><td>' + "Regimen"
+                    + '</td><td>' + "RT 유/무"
+
+                    + '</td><td>' + "검사일시"
+                    + '</td><td>' + "Cycle No"
+                    + '</td><td>' + "WBC"
+                    + '</td><td>' + "Hg"
+                    + '</td><td>' + "Hct"
+                    + '</td><td>' + "PLT"
+                    + '</td><td>' + "Seg neutrophil(#)"
+                    + '</td><td>' + "Lymphocyte(#)"
+                    + '</td><td>' + "ANC"
+                    + '</td><td>' + "Sodium"
+                    + '</td><td>' + "Potassium"
+                    + '</td><td>' + "Chloride"
+                    + '</td><td>' + "Osmolality/serum"
+                    + '</td><td>' + "Calcium"
+                    + '</td><td>' + "Phosphorus"
+                    + '</td><td>' + "BUN"
+                    + '</td><td>' + "Creatinine"
+                    + '</td><td>' + "Glucose"
+                    + '</td><td>' + "Uric acid"
+                    + '</td><td>' + "Cholesterol"
+                    + '</td><td>' + "Protein/Total"
+                    + '</td><td>' + "Albumin"
+                    + '</td><td>' + "Bilirubin/Total"
+                    + '</td><td>' + "Alkaline phosphatase"
+                    + '</td><td>' + "AST"
+                    + '</td><td>' + "ALT"
+                    + '</td><td>' + "eGFR(MDRD 공식)"
+                    + '</td><td>' + "eGFR(CKD-EPI 공식)"
+                    + '</td><td>' + "LDH"
+                    + '</td></tr>';
+
+          for(var i in jsonData) {
+            myHTMLStr += '<tr><td>' + jsonData[i].created
+                      + '</td><td>' + jsonData[i].subject_no
+                      + '</td><td>' + jsonData[i].no
+                      + '</td><td>' + jsonData[i].name
+                      + '</td><td>' + jsonData[i].initial
+                      + '</td><td>' + jsonData[i].sex
+                      + '</td><td>' + jsonData[i].age
+
+                      + '</td><td>' + jsonData[i].diagnosis_date
+                      + '</td><td>' + jsonData[i].diagnosis
+                      + '</td><td>' + jsonData[i].diagnosis_pathology
+                      + '</td><td>' + jsonData[i].surgery_date
+                      + '</td><td>' + jsonData[i].recurrence
+                      + '</td><td>' + jsonData[i].recurrence_date
+
+                      + '</td><td>' + jsonData[i].lastcare_date
+                      + '</td><td>' + jsonData[i].death_date
+                      + '</td><td>' + jsonData[i].egfr_mutation
+                      + '</td><td>' + jsonData[i].ros1_mutation
+                      + '</td><td>' + jsonData[i].alk_mutation
+                      + '</td><td>' + jsonData[i].k_ras_mutation
+                      + '</td><td>' + jsonData[i].other
+                      + '</td><td>' + jsonData[i].tumor_stage_7th
+                      + '</td><td>' + jsonData[i].tumor_stage_8th
+                      + '</td><td>' + jsonData[i].pathology_location
+                      + '</td><td>' + jsonData[i].pathology_size_mm
+                      + '</td><td>' + jsonData[i].pathology_visceral_pleural
+                      + '</td><td>' + jsonData[i].pathology_resection_margion_fullterm
+                      + '</td><td>' + jsonData[i].pathology_lymph_node
+                      + '</td><td>' + jsonData[i].pathology_lymphovascular_invasion
+                      + '</td><td>' + jsonData[i].pathology_differentiation
+                      + '</td><td>' + jsonData[i].tobacco_smoking_history_indicator
+                      + '</td><td>' + jsonData[i].year_of_tobacco_smoking_onset
+                      + '</td><td>' + jsonData[i].year_of_tobacco_smoking_cessation
+                      + '</td><td>' + jsonData[i].regimen
+
+                      + '</td><td>' + jsonData[i].start_date
+                      + '</td><td>' + jsonData[i].last_date
+                      + '</td><td>' + jsonData[i].cycle_no
+                      + '</td><td>' + jsonData[i].recurrence_progressive_disease
+                      + '</td><td>' + jsonData[i].recurrence_date_
+                      + '</td><td>' + jsonData[i].regimen_
+                      + '</td><td>' + jsonData[i].rt
+
+                      + '</td><td>' + jsonData[i].examine_date
+                      + '</td><td>' + jsonData[i].cycle_no_
+                      + '</td><td>' + jsonData[i].wbc
+                      + '</td><td>' + jsonData[i].hg
+                      + '</td><td>' + jsonData[i].hct
+                      + '</td><td>' + jsonData[i].plt
+                      + '</td><td>' + jsonData[i].seg_neutrophil
+                      + '</td><td>' + jsonData[i].lymphocyte
+                      + '</td><td>' + jsonData[i].anc
+                      + '</td><td>' + jsonData[i].sodium
+                      + '</td><td>' + jsonData[i].potassium
+                      + '</td><td>' + jsonData[i].chloride
+                      + '</td><td>' + jsonData[i].osmolality_serum
+                      + '</td><td>' + jsonData[i].calcium
+                      + '</td><td>' + jsonData[i].phosphorus
+                      + '</td><td>' + jsonData[i].bun
+                      + '</td><td>' + jsonData[i].creatinine
+                      + '</td><td>' + jsonData[i].glucose
+                      + '</td><td>' + jsonData[i].uric_acid
+                      + '</td><td>' + jsonData[i].cholesterol
+                      + '</td><td>' + jsonData[i].protein_total
+                      + '</td><td>' + jsonData[i].albumin
+                      + '</td><td>' + jsonData[i].bilirubin_total
+                      + '</td><td>' + jsonData[i].alkaline_phosphatase
+                      + '</td><td>' + jsonData[i].ast
+                      + '</td><td>' + jsonData[i].alt
+                      + '</td><td>' + jsonData[i].egfr_mdrd
+                      + '</td><td>' + jsonData[i].egfr_ckd_epi
+                      + '</td><td>' + jsonData[i].ldh
+                      + '</td></tr>';
+          }
+          myHTMLStr +='</table>';
+          return myHTMLStr
+        }
+
+        //데이터 확인/검색 메뉴 클릭 함수
+        $('#menu_bt2').on("click", function() {
+          document.getElementById("page1").style.display = "none"
+          document.getElementById("page2").style.display = "block"
+          document.getElementById("page3-1").style.display = "block"
+
+          $.ajax({
+            url: '/view1',
+            type: 'post',
+            data: { data: 'none' },
+            dataType: 'json',
+
+            success: function(res) { //성공 시 코드
+              $('#page3-2').html(jsonToTable(res))
+              server_DB = res
+            },
+            error: function(e) { //실패 시 코드
+              alert(e)
+            }
+          })
+        })
+
+        //검색 교집합 함수
+        function intersect(a, b) {
+            var t;
+            if (b.length > a.length) {t=b, b=a, a=t} // indexOf to loop over shorter
+            return a.filter(function (e) {
+                return b.indexOf(e) > -1;
+            });
+        }
+
+        //검색 버튼 클릭 함수
+        $('#search_bt').on("click", function() {
+          document.getElementById("page1").style.display = "none"
+          document.getElementById("page2").style.display = "block"
+          document.getElementById("page3-1").style.display = "block"
+          document.getElementById("page4-1").style.display = "block"
+
+          var tmp1 = server_DB.filter(function (obj) {
+            if (getValue('input6-1') == "-") { return obj }
+            else { return obj.name == getValue('input6-1') }
+          })
+          var tmp2 = server_DB.filter(function (obj) {
+            if (radioCheck('radio6-1') == "Null") { return obj }
+            else { return obj.sex == radioCheck('radio6-1') }
+          })
+          var tmp3 = server_DB.filter(function (obj) {
+            if (getValue('input6-2') == "-") { return obj }
+            else { return obj.age == getValue('input6-2') }
+          })
+          var tmp4 = server_DB.filter(function (obj) {
+            if (comboCheck('combo6-1-1') + comboCheck('combo6-1-2') + comboCheck('combo6-1-3') == "---") { return obj }
+            else { return obj.diagnosis_date == comboCheck('combo6-1-1') + comboCheck('combo6-1-2') + comboCheck('combo6-1-3') }
+          })
+          var tmp5 = server_DB.filter(function (obj) {
+            if (comboCheck('combo6-2-1') + comboCheck('combo6-2-2') + comboCheck('combo6-2-3') == "---") { return obj }
+            else { return obj.surgery_date == comboCheck('combo6-2-1') + comboCheck('combo6-2-2') + comboCheck('combo6-2-3') }
+          })
+          var tmp6 = server_DB.filter(function (obj) {
+            if (comboCheck('combo6-3-1') + comboCheck('combo6-3-2') + comboCheck('combo6-3-3') == "---") { return obj }
+            else { return obj.lastcare_date == comboCheck('combo6-3-1') + comboCheck('combo6-3-2') + comboCheck('combo6-3-3') }
+          })
+          var tmpTotal = intersect(tmp1, (intersect(tmp2, (intersect(tmp3, (intersect(tmp4, (intersect(tmp5, tmp6)))))))))
+
+          alert("검색이 완료되었습니다.")
+          $('#page4-2').html(jsonToTable(tmpTotal))
+          server_searchedDB = tmpTotal
+        })
+
+        //json을 csv 형식으로 변환하는 함수
+        function convertToCSV(objArray) {
+            var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+            var str = '';
+
+            for (var i = 0; i < array.length; i++) {
+                var line = '';
+                for (var index in array[i]) {
+                    if (line != '') line += ','
+                    line += array[i][index];
+                }
+                str += line + '\r\n';
+            }
+            return str;
+        }
+
+        //csv 파일 다운로드 함수
+        function exportCSVFile(headers, items, fileTitle) {
+            if (headers) {
+                items.unshift(headers);
+            }
+            var jsonObject = JSON.stringify(items);
+            var csv = this.convertToCSV(jsonObject);
+            var exportedFilenmae = fileTitle + '.csv' || 'export.csv';
+            var blob = new Blob(["\ufeff" + csv], {
+                type: 'text/csv;charset=utf-8;'
+            });
+            if (navigator.msSaveBlob) { // IE 10+
+                navigator.msSaveBlob(blob, exportedFilenmae);
+            } else {
+                var link = document.createElement("a");
+                if (link.download !== undefined) {
+                    var url = URL.createObjectURL(blob);
+                    link.setAttribute("href", url);
+                    link.setAttribute("download", exportedFilenmae);
+                    link.style.visibility = 'hidden';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
+            }
+        }
+
+        var headers = {
+            Created: "생성일",
+            Subject_No: "Subject No",
+            No: "등록번호",
+            Name: "이름",
+            Initial: "이니셜",
+            Sex: "성별(M/F)",
+            Age: "나이(age)",
+
+            Diagnosis_date: "진단일",
+            Diagnosis: "Diagnosis",
+            Diagnosis_pathology: "Diagnosis pathology",
+            Surgery_date: "수술일",
+            Recurrence: "Recurrence 유/무",
+            Recurrence_date: "Recurrence date",
+
+            lastcare_date: "마지막 외래일",
+            Death_date: "사망일",
+            EGFR_mutation: "EGFR mutation 유/무",
+            ROS1_mutation: "ROS1 mutation 유/무",
+            ALK_mutation: "ALK mutation 유/무",
+            K_RAS_mutation: "K-RAS mutation 유/무",
+            Other: "Other",
+            Tumor_stage_7th: "Tumor stage(7th)",
+            Tumor_stage_8th: "Tumor stage(8th)",
+            Pathology_location: "Pathology-location",
+            Pathology_size_mm: "Pathology-size(mm)",
+            Pathology_visceral_pleural: "Pathology-visceral pleural(+/-)",
+            Pathology_resection_margion_fullterm: "Pathology-resection margion(full term)",
+            Pathology_lymph_node: "Pathology-lymph node",
+            Pathology_lymphovascular_invasion: "Pathology-lymphovascular invasion(+/-)",
+            Pathology_differentiation: "Pathology-differentiation",
+            Tobacco_smoking_history_indicator: "Tobacco smoking history indicator",
+            Year_of_tobacco_smoking_onset: "Year of tobacco smoking onset",
+            Year_of_tobacco_smoking_cessation: "Year of tobacco smoking cessation",
+            Regimen: "Regimen",
+
+            Start_date: "Start date",
+            Last_date: "Last date",
+            Cycle_No: "Cycle No",
+            Recurrence_Progressive_disease: "Recurrence/Progressive disease",
+            Recurrence_date_: "Recurrence date",
+            Regimen_: "Regimen",
+            RT: "RT 유/무",
+
+            Examine_date: "검사일시",
+            Cycle_No_: "Cycle No",
+            WBC: "WBC",
+            Hg: "Hg",
+            Hct: "Hct",
+            PLT: "PLT",
+            Seg_neutrophil: "Seg neutrophil(#)",
+            Lymphocyte: "Lymphocyte(#)",
+            ANC: "ANC",
+            Sodium: "Sodium",
+            Potassium: "Potassium",
+            Chloride: "Chloride",
+            Osmolality_serum: "Osmolality/serum",
+            Calcium: "Calcium",
+            Phosphorus: "Phosphorus",
+            BUN: "BUN",
+            Creatinine: "Creatinine",
+            Glucose: "Glucose",
+            Uric_acid: "Uric acid",
+            Cholesterol: "Cholesterol",
+            Protein_Total: "Protein/Total",
+            Albumin: "Albumin",
+            Bilirubin_total: "Bilirubin/Total",
+            Alkaline_phosphatase: "Alkaline phosphatase",
+            AST: "AST",
+            ALT: "ALT",
+            eGFR_MDRD: "eGFR(MDRD 공식)",
+            eGFR_CKD_EPI: "eGFR(CKD-EPI 공식)",
+            LDH: "LDH"
+        };
+        //서버DB 다운로드 함수
+        function download_DB() {
+            var itemsNotFormatted = server_DB
+            var itemsFormatted = [];
+            itemsNotFormatted.forEach((item) => {
+                itemsFormatted.push({
+                    Created: item.created,
+                    Subject_No: item.subject_no,
+                    No: item.no,
+                    Name: item.name,
+                    Initial: item.initial,
+                    Sex: item.sex,
+                    Age: item.age,
+
+                    Diagnosis_date: item.diagnosis_date,
+                    Diagnosis: item.diagnosis,
+                    Diagnosis_pathology: item.diagnosis_pathology,
+                    Surgery_date: item.surgery_date,
+                    Recurrence: item.recurrence,
+                    Recurrence_date: item.recurrence_date,
+
+                    lastcare_date: item.lastcare_date,
+                    Death_date : item.death_date,
+                    EGFR_mutation: item.egfr_mutation,
+                    ROS1_mutation : item.ros1_mutation,
+                    ALK_mutation: item.alk_mutation,
+                    K_RAS_mutation : item.k_ras_mutation,
+                    Other : item.other,
+                    Tumor_stage_7th : item.tumor_stage_7th,
+                    Tumor_stage_8th : item.tumor_stage_8th,
+                    Pathology_location: item.pathology_location,
+                    Pathology_size_mm : item.pathology_size_mm,
+                    Pathology_visceral_pleural : item.pathology_visceral_pleural,
+                    Pathology_resection_margion_fullterm : item.pathology_resection_margion_fullterm,
+                    Pathology_lymph_node: item.pathology_lymph_node,
+                    Pathology_lymphovascular_invasion: item.pathology_lymphovascular_invasion,
+                    Pathology_differentiation: item.pathology_differentiation,
+                    Tobacco_smoking_history_indicator: item.tobacco_smoking_history_indicator,
+                    Year_of_tobacco_smoking_onset: item.year_of_tobacco_smoking_onset,
+                    Year_of_tobacco_smoking_cessation: item.year_of_tobacco_smoking_cessation,
+                    Regimen: item.regimen,
+
+                    Start_date: item.start_date,
+                    Last_date: item.last_date,
+                    Cycle_No: item.cycle_no,
+                    Recurrence_Progressive_disease: item.recurrence_progressive_disease,
+                    Recurrence_date_ : item.recurrence_date_,
+                    Regimen_: item.regimen_,
+                    RT: item.rt,
+
+                    Examine_date: item.examine_date,
+                    Cycle_No_: item.cycle_no_,
+                    WBC: item.wbc,
+                    Hg: item.hg,
+                    Hct: item.hct,
+                    PLT: item.plt,
+                    Seg_neutrophil: item.seg_neutrophil,
+                    Lymphocyte: item.lymphocyte,
+                    ANC: item.anc,
+                    Sodium: item.sodium,
+                    Potassium: item.potassium,
+                    Chloride: item.chloride,
+                    Osmolality_serum: item.osmolality_serum,
+                    Calcium : item.calcium,
+                    Phosphorus: item.phosphorus,
+                    BUN: item.bun,
+                    Creatinine: item.creatinine,
+                    Glucose: item.glucose,
+                    Uric_acid: item.uric_acid,
+                    Cholesterol: item.cholesterol,
+                    Protein_Total: item.protein_total,
+                    Albumin: item.albumin,
+                    Bilirubin_total: item.bilirubin_total,
+                    Alkaline_phosphatase: item.alkaline_phosphatase,
+                    AST: item.ast,
+                    ALT: item.alt,
+                    eGFR_MDRD: item.egfr_mdrd,
+                    eGFR_CKD_EPI: item.egfr_ckd_epi,
+                    LDH: item.ldh
+                });
+            });
+            var fileTitle = "my_export";
+            exportCSVFile(headers, itemsFormatted, fileTitle);
+        }
+
+        //검색된 서버DB 다운로드 함수
+        function download_searchedDB() {
+            var itemsNotFormatted = server_searchedDB
+            var itemsFormatted = [];
+            itemsNotFormatted.forEach((item) => {
+                itemsFormatted.push({
+                  Created: item.created,
+                  Subject_No: item.subject_no,
+                  No: item.no,
+                  Name: item.name,
+                  Initial: item.initial,
+                  Sex: item.sex,
+                  Age: item.age,
+
+                  Diagnosis_date: item.diagnosis_date,
+                  Diagnosis: item.diagnosis,
+                  Diagnosis_pathology: item.diagnosis_pathology,
+                  Surgery_date: item.surgery_date,
+                  Recurrence: item.recurrence,
+                  Recurrence_date: item.recurrence_date,
+
+                  lastcare_date: item.lastcare_date,
+                  Death_date : item.death_date,
+                  EGFR_mutation: item.egfr_mutation,
+                  ROS1_mutation : item.ros1_mutation,
+                  ALK_mutation: item.alk_mutation,
+                  K_RAS_mutation : item.k_ras_mutation,
+                  Other : item.other,
+                  Tumor_stage_7th : item.tumor_stage_7th,
+                  Tumor_stage_8th : item.tumor_stage_8th,
+                  Pathology_location: item.pathology_location,
+                  Pathology_size_mm : item.pathology_size_mm,
+                  Pathology_visceral_pleural : item.pathology_visceral_pleural,
+                  Pathology_resection_margion_fullterm : item.pathology_resection_margion_fullterm,
+                  Pathology_lymph_node: item.pathology_lymph_node,
+                  Pathology_lymphovascular_invasion: item.pathology_lymphovascular_invasion,
+                  Pathology_differentiation: item.pathology_differentiation,
+                  Tobacco_smoking_history_indicator: item.tobacco_smoking_history_indicator,
+                  Year_of_tobacco_smoking_onset: item.year_of_tobacco_smoking_onset,
+                  Year_of_tobacco_smoking_cessation: item.year_of_tobacco_smoking_cessation,
+                  Regimen: item.regimen,
+
+                  Start_date: item.start_date,
+                  Last_date: item.last_date,
+                  Cycle_No: item.cycle_no,
+                  Recurrence_Progressive_disease: item.recurrence_progressive_disease,
+                  Recurrence_date_ : item.recurrence_date_,
+                  Regimen_: item.regimen_,
+                  RT: item.rt,
+
+                  Examine_date: item.examine_date,
+                  Cycle_No_: item.cycle_no_,
+                  WBC: item.wbc,
+                  Hg: item.hg,
+                  Hct: item.hct,
+                  PLT: item.plt,
+                  Seg_neutrophil: item.seg_neutrophil,
+                  Lymphocyte: item.lymphocyte,
+                  ANC: item.anc,
+                  Sodium: item.sodium,
+                  Potassium: item.potassium,
+                  Chloride: item.chloride,
+                  Osmolality_serum: item.osmolality_serum,
+                  Calcium : item.calcium,
+                  Phosphorus: item.phosphorus,
+                  BUN: item.bun,
+                  Creatinine: item.creatinine,
+                  Glucose: item.glucose,
+                  Uric_acid: item.uric_acid,
+                  Cholesterol: item.cholesterol,
+                  Protein_Total: item.protein_total,
+                  Albumin: item.albumin,
+                  Bilirubin_total: item.bilirubin_total,
+                  Alkaline_phosphatase: item.alkaline_phosphatase,
+                  AST: item.ast,
+                  ALT: item.alt,
+                  eGFR_MDRD: item.egfr_mdrd,
+                  eGFR_CKD_EPI: item.egfr_ckd_epi,
+                  LDH: item.ldh
+                });
+            });
+            var fileTitle = "my_searched_export";
+            exportCSVFile(headers, itemsFormatted, fileTitle);
+        }
+
+    </script>
+
+</body>
+</html>
