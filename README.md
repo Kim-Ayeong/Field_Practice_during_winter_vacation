@@ -3,7 +3,8 @@
 
 - 실습 일시 : 2019/01/01 - 2019/02/28
 - 언어 및 프로그램
-  - Web 개발 : HTML5, CSS3, JavaScript, JQuery, Node.js, MySQL / Atom
+  - Web 개발 : HTML5, CSS3, JavaScript, JQuery, Node.js / Atom
+  - DB 구축 : MySQL
   - 통계 분석 : R / R Studio
 - 실습 내용
   - Web 개발
@@ -14,4 +15,5 @@
     -  심혈관 데이터
     -  치매 데이터
 - Result report 참고
+- (추가) BOAZ 빅데이터 연합동아리 - 미니 프로젝트
 
